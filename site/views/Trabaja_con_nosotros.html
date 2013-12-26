@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Marketing Alterno</title>
+		<link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="css/estilo.css" type="text/css" media="screen">
+		<link rel="stylesheet" href="css/trabaja.css" type="text/css" media="screen">
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	</head>
+	<body>
+		<div id="cuerpo">
+			<div id="izquierda">
+				<div id="logo"><img src="images/logo.jpg">
+				</div>
+				<nav>
+					<a href="index.html">HOME</a><a href="nosotros.html">NOSOTROS</a><a href="servicios.html">SERVICIOS</a><a href="portafolios.html">PORTAFOLIOS</a><a href="clientes.html">CLIENTES</a>
+				</nav>
+				<div id="debajo">
+					<div id="submenu">
+						<a href="cobertura.html">Cobertura</a><a href="Trabaja_con_nosotros.html">Trabaja con Nosotros</a><a href="contactanos.html">Contáctanos</a>
+					</div>
+					<div id="submenu2"><img src="images/social.png">
+					</div>
+					<div id="pie">
+						Marketing Alterno Perú
+						<br>
+						Todos los derechos reservados
+					</div>
+				</div>
+			</div>
+
+			<div id="centro">
+				<div id="izq">
+					<div id="formulario">
+						<h1>TRABAJA CON NOSOTROS</h1>
+						<form action="form.php?a=contactanos" method="post">
+							<input type="text" placeholder="Nombre" name="nombre" />
+							<div class="file">
+								<input type="file" value="Adjunta CV" name="cv" placeholder="Adjuntar CV" style="width:180px">
+								<span style="color: rgb(0, 0, 0); font-size: 12px; font-family: 'MuseoSans_300';">adjunta CV</span>
+							</div>
+							<div class="select">
+								<select name="estudios">
+									<option value="">Postulas A</option>
+									<option value="Mercaderistas">Mercaderistas</option>
+									<option value="Impulsadora">Impulsadora</option>
+									<option value="Promotores">Promotores</option>
+									<option value="Canjistas">Canjistas</option>
+									<option value="Trainnes">Trainnes</option>
+									<option value="Supervisores">Supervisores</option>
+									<option value="Anfitrionas (es)">Anfitrionas (es)</option>
+									<option value="Degustadoras">Degustadoras</option>
+								</select>
+							</div>
+							<div class="select">
+								<select name="sexo">
+									<option value="">Sexo</option>
+									<option value="Masculino">Masculino</option>
+									<option value="Femenino">Femenino</option>
+								</select>
+							</div>
+							<div class="select">
+								<select name="edad">
+									<option value="">Edad</option>
+									<option value="18-20">18-20</option>
+									<option value="20-24">20-24</option>
+									<option value="25-30">25-30</option>
+									<option value="30-35">30-35</option>
+									<option value="35-40">35-40</option>
+									<option value="40 a mas">40 a mas</option>
+								</select>
+							</div>
+							<div class="select">
+								<select name="estudios">
+									<option value="">Estudios</option>
+									<option value="secundarios">secundarios</option>
+									<option value="técnicos">técnicos</option>
+									<option value="superiores">superiores</option>
+									<option value="universitarios">universitarios</option>
+								</select>
+							</div>
+							<input type="email" placeholder="Email" name="email" />
+							<input type="tel" placeholder="Teléfono" name="telefono" />
+							<textarea placeholder="Consulta" name="consulta"></textarea>
+
+							<button type="submit" value="" name="enviar"></button>
+						</form>
+					</div>
+				</div>
+				<div id="der">
+
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/trabaja.js"></script>
+	</body>
+</html>

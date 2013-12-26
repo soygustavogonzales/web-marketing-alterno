@@ -1,0 +1,123 @@
+div#izq {
+	background-color: #4958e1;
+/*	background-image: url("../images/servicios/01.jpg");
+	background-position: center top;
+	background-repeat: no-repeat;*/
+	float: left;
+	font-family: 'MuseoSans_300';
+	height: 110%;
+	position: relative;
+	width: 316px;
+}
+div#izq div#texto {
+	height: 610px;
+	margin-right: 10px;
+	margin-top: -350px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	width: 280px;
+}
+div#izq h1 {
+	font-size: 48px;
+	font-family: 'MuseoSans_300';
+	font-weight: normal;
+	color: #fff;
+}
+div#izq h2 {
+	font-family: 'MuseoSans_300';
+	font-size: 11pt;
+	font-weight: bold;
+}
+div#izq p {
+	color: #FFFFFF;
+	font-family: 'MuseoSans_300';
+	font-size: 8pt;
+	font-weight: normal;
+	text-align: justify;
+}
+div#der {
+	background-image: url("../images/servicios/fondos/1.jpg");
+	background-size: cover;
+	background-position: left center;
+	width: 100%;
+	height: 110%;
+}
+div.cajas {
+	width: 280px;
+	height: 60px;
+	margin-bottom: 5px;
+	cursor: pointer;
+}
+div.cajas:hover {
+	background-color: #3a48c3;
+}
+div.seleccionado {
+	background-color: #3a48c3;
+}
+div.cajas h2 {
+	color: #fff;
+	margin: 0px;
+	font-family: 'MuseoSans_500';
+	text-transform: uppercase;
+	font-size: 13pt;
+}
+div.cajas img {
+	height: 60px;
+}
+div.cajas dd {
+	width: 60px;
+	height: 60px;
+}
+div#izq dl {
+	width: 280px;
+}
+div#izq dd {
+	margin-left: 70px;
+	margin-top: -60px;
+	width: 220px;
+	padding-top: 8px;
+}
+div#izq div.cajas p {
+	margin: 0px;
+	color: #33ccff;
+}
+div.cajas dt {
+	width: 60px;
+	height: 60px;
+	overflow: hidden;
+}
+#descripciones {
+	font-family: 'MuseoSans_300';
+	height: 100%;
+	left: 316px;
+	position: absolute;
+	top: 0;
+	width: 500px;
+}
+.descripcion {
+	background-image: url("../images/bg_70_c.png");
+	display: none;
+	padding: 30px;
+	position: absolute;
+	width: 310px;
+	height: 100%;
+	color: #fff;
+}
+.descripcion h2 {
+	font-family: 'MuseoSans_300';
+	font-size: 38px;
+	margin-bottom: 10px;
+	color: #000;
+	font-weight: normal;
+}
+.descripcion p {
+	font-size: 10pt;
+	margin-top: 0;
+	text-align: justify;
+}
+.descripcion li {
+	font-size: 10pt;
+	margin-top: 0;
+	text-align: justify;
+}

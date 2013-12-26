@@ -1,0 +1,27 @@
+{
+  "name": "marketingalterno",
+  "version": "0.0.0",
+  "description": "web page of \"marketing alterno\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/soygustavogonzales/web-marketing-alterno.git"
+  },
+  "dependencies":{
+    "express":"3.4.7",
+   "jade":"0.35.0"
+  },
+  "keywords": [
+    "web",
+    "marketing-alterno"
+  ],
+  "author": "GUstavo Gonzales",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/soygustavogonzales/web-marketing-alterno/issues"
+  },
+  "homepage": "https://github.com/soygustavogonzales/web-marketing-alterno"
+}

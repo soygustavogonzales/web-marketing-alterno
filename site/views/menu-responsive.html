@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no" >
+	<title>Document</title>
+	<link rel="stylesheet" href="styles/css/slicknav.css" type="text/css" media="screen">
+	<style>
+	.slicknav_menu {
+			display:none;
+		}
+	@media screen and (max-width: 480px) {
+		body{
+				background: cyan;
+		}
+			#menu-p {
+				display:none;
+			}
+			.slicknav_menu {
+				display:block;
+			}
+	}
+	</style>
+</head>
+<body>
+	<ul id="menu-p">
+		<li><a href="index.html">HOME</a></li>
+		<li><a href="nosotros.html">NOSOTROS</a></li>
+		<li><a href="nosotros.html">NOSOTROS</a></li>
+		<li><a href="servicios.html">SERVICIOS</a></li>
+		<li><a href="portafolios.html">PORTAFOLIOS</a></li>
+		<li><a href="clientes.html">CLIENTES</a></li>
+	</ul>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="js/jquery.slicknav.js"></script>
+	<script>
+	var l = console;
+	$(function(){
+
+	l.log($('#menu-p'))
+		$('#menu-p').slicknav();
+	})
+		
+	</script>
+</body>
+</html>

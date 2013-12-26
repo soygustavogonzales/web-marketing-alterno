@@ -1,0 +1,40 @@
+div#izq {
+	background-color: #F0364E;
+/*	background-image: url("../images/nosotros/01.jpg");
+	background-position: center top;
+	background-repeat: no-repeat;*/
+	float: left;
+	font-family: 'MuseoSans_300';
+	height: 110%;
+	position: relative;
+	width: 316px;
+}
+div#izq div#texto {
+	height: 500px;
+	left: 50%;
+	margin-left: -130px;
+	margin-right: auto;
+	margin-top: -250px;
+	position: absolute;
+	top: 50%;
+	width: 260px;
+}
+div#izq h2 {
+	font-family: 'MuseoSans_300';
+	font-size: 35pt;
+	color: #fff;
+}
+div#izq p {
+	color: #FFFFFF;
+	font-family: 'MuseoSans_300';
+	font-size: 10pt;
+	font-weight: normal;
+	text-align: justify;
+}
+div#der {
+	background-image: url("../images/nosotros/02.jpg");
+	background-size: cover;
+	background-position: left center;
+	width: 100%;
+	height: 110%;
+}
