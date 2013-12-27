@@ -166,17 +166,17 @@
 			var platform = navigator.platform;
 			var getNameBrowser = function(string){
 				var resq=/(msie)|(firefox)|(chrome)|(opera)|(safari)|(android)/i.exec(string.toLowerCase());//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
-				resq = (resq[0])?resq[0].toLowerCase():null;
+				resq = ((resq[0])?resq[0].toLowerCase():null);
 				return resq;
 			}
 			var getNameSO = function(string){
 				var resq=/(Win)|(Linux)|(Mac)/i.exec(string.toLowerCase());//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
-				resq = (resq[0])?resq[0].toLowerCase():null;
+				resq = ((resq[0])?resq[0].toLowerCase():null);
 				return resq;
 			}
 			var getNameDevice = function(string){
 				var resq = /(Linux)|(Win32)|(iPad)|(iPhone)|(iPod)/i.exec(string.toLowerCase());
-				resq = (resq[0])?resq[0].toLowerCase():null;
+				resq = ((resq[0])?resq[0].toLowerCase():null);
 				return resq;
 			}
 			return {
