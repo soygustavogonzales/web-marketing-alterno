@@ -165,32 +165,34 @@
 			var userAgent=navigator.userAgent;//devuelve una cadena con el nombre del navegador ,version, sistema operativo (nombre generico) del usuario,motor del navegador.
 			var platform = navigator.platform;
 			var getNameBrowser = function(string){
-				var resq=/(msie)|(firefox)|(chrome)|(opera)|(safari)|(android)/i.exec(string);//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
-				return resq[0].toLowerCase();
+				var resq=/(msie)|(firefox)|(chrome)|(opera)|(safari)|(android)/i.exec(string.toLowerCase());//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
+				resq = (resq[0])?resq[0].toLowerCase():null;
+				return resq;
 			}
 			var getNameSO = function(string){
-				var resq=/(Win)|(Linux)|(Mac)/i.exec(string);//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
-				return resq[0].toLowerCase();
+				var resq=/(Win)|(Linux)|(Mac)/i.exec(string.toLowerCase());//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
+				resq = (resq[0])?resq[0].toLowerCase():null;
+				return resq;
 			}
 			var getNameDevice = function(string){
-				var resq = /(Linux)|(iPad)|(iPhone)|(iPod)/i.exec(string);
-				return resq[0].toLowerCase();
+				var resq = /(Linux)|(Win32)|(iPad)|(iPhone)|(iPod)/i.exec(string.toLowerCase());
+				resq = (resq[0])?resq[0].toLowerCase():null;
+				return resq;
 			}
-			return [
-				getNameBrowser(userAgent)||"unknown",//[0]
-				getNameSO(userAgent)||"unknown",//[1]
-				getNameDevice(platform)||"unknown"//[2]
-			];
+			return {
+				browser:getNameBrowser(userAgent),//[0]
+				so:getNameSO(userAgent),//[1]
+				device:getNameDevice(platform)//[2]
+			};
 		}
 		var dataStatic = {
-			browser:dataSO()[0],
-			so:dataSO()[1],
-			device:dataSO()[2],
-		};
+																				browser:dataSO().browser,
+																				so:dataSO().so,
+																				device:dataSO().device
+																			};
 		console.log(dataStatic);
-
-		console.log("el so es :"+ dataSO()[1] + "\nel browser: "+dataSO()[0]+"\n el Device: " +dataSO()[2]);
-		if(dataStatic.browser=="chrome"||dataStatic.browser=="firefox"||dataStatic.browser=="safari"){
+		dataStatic.condicionBrowser = (dataStatic.browser=="chrome"||dataStatic.browser=="firefox"||dataStatic.browser=="safari");
+		if(dataStatic.condicionBrowser){
 			$('.control-menu').tooltip();
 			console.log("tooltip activado")
 		}
@@ -287,7 +289,7 @@
 						btnControlMenu.css({
 							"visibility":"visible"
 						});
-						if(dataStatic.browser=="chrome"||dataStatic.browser=="firefox"||dataStatic.browser=="safari"){
+						if(dataStatic.condicionBrowser){
 							b.dataset.originalTitle = "Mostrar menu";
 						}
 							
@@ -302,7 +304,7 @@
 							izquierda_bajo.css({
 								"visibility":"visible"
 							});
-							if(dataStatic.browser=="chrome"||dataStatic.browser=="firefox"||dataStatic.browser=="safari"){
+							if(dataStatic.condicionBrowser){
 								b.dataset.originalTitle = "Ocultar menu";
 							}
 						})//function
