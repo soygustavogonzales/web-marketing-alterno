@@ -51,6 +51,9 @@ div#cuerpo {
 	height: 100%;
 	position: relative;
 	width: 100%;
+	font-size: 16px;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-weight: 560;
 }
 div#izquierda {
 	width: 15%;
@@ -218,9 +221,50 @@ div#pie {
 
 	.nosotros{
 		width: 100%;
-		height: 600px;
+		height: auto;
 		background: rgba(245,245,245,1);
+		padding: .7em .6em;
 	}	
+	.nosotros img{
+		width:100%;
+		height: auto;
+		margin:.5em;
+	}
+	.nosotros hr{
+		color: #ccc;
+	}
+	.nosotros .row{
+		margin:.4em .1em;
+		text-align: justify;
+	}
+	.nosotros .capital:first-letter{/*Aplicamos letra capital*/
+		 float:left;
+   color:black;
+   font-size:80px;
+   line-height:60px;
+   padding:2px;
+   margin-right: 5px;  
+	}
+	.nosotros .fila-1 .img:after{
+		content: "Equipo de Marketing Alterno";
+		background: rgba(0,0,0,.7);
+		padding: 10px 1%;
+		color: rgba(255,255,255,.8);
+		position: relative;
+		top:-40px;
+		left: 4%;
+	}
+	.row .sub:first-letter{/*Aplicamos letra capital*/
+		 float:left;
+   color:black;
+   font-size:50px;
+   line-height:40px;
+   padding:2px;
+   margin-right: 5px; 
+	}
+	.nosotros .sub-right{
+		border-left: 1px solid #ccc;
+	}
 	.servicios{
 		width: 100%;
 		height: auto;
@@ -289,6 +333,21 @@ div#pie {
 	display: none;
 	visibility: hidden;
 }
+@media (max-width: 980px){
+	.nosotros .fila-1 .img:after{
+		padding: 10px 10%;
+	}
+	.nosotros .sub{
+		margin: 0 .5% 1.5%;
+	}
+	.nosotros .row .sub-right{
+		border-left: none;
+		border-top: 1px solid #ccc;
+		padding-top: 1.5%;
+	}
+
+
+}
 
 @media (max-width: 480px){
 	body{
@@ -335,3 +394,4 @@ div#pie {
 	#pattern{
 	}
 }
+
