@@ -26,7 +26,7 @@
         return resq;
       }
       var getNameDevice = function(string){
-        var resq = /(Linux)|(Win32)|(iPad)|(iPhone)|(iPod)/i.exec(string.toLowerCase());
+        var resq = /(Linux)|(Win32)|(iPad)|(iPhone)|(MacIntel)|(iPod)/i.exec(string.toLowerCase());
         resq = ((resq[0])?resq[0].toLowerCase():null);
         return resq;
       }
