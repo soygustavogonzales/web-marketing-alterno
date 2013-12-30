@@ -128,7 +128,7 @@
       btnControlMenu.on('click',function(e){
 
         var b = $('.control-menu')[0];//cojo al elemento en su forma nativa como javascript
-        var margen_izquierdo = izquierda_bajo.width() - 80;
+        var margen_izquierdo = izquierda_bajo.width() - 20;
         if(izquierda_bajo.estado){
           izquierda_bajo.animate({
             "left": "-="+margen_izquierdo+"px"},

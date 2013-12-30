@@ -21,10 +21,15 @@ html {
 
 .control-menu{
 	position: relative;
-	left:70%;
-	background: rgba(0,0,0,.6);
+	left:105%;
+	background: rgba(0,0,0,.2);
 	color:rgba(255,255,255,1);
 	border-color: rgba(0,0,0,.6);
+	border:none;
+	font-weight: 100;
+	font-size: 12px;
+	opacity: .5;
+	top: -20px;
 }
 
 .backstretch > img:before{
@@ -39,6 +44,7 @@ body {
 	margin: 0px;
 	padding: 0px;
 	height: 100%;
+	overflow-x:hidden; 
 }
 div#cuerpo {
 	clear: both;
@@ -201,7 +207,7 @@ div#pie {
 #texto-slider b{
 	color: rgba(0,0,0,.6);
 	display: block;
-	font-size: 1.98em;
+	font-size: 2.5em;
 }
 
 	.slicknav_menu{
@@ -217,41 +223,66 @@ div#pie {
 	}	
 	.servicios{
 		width: 100%;
-		height: 600px;
+		height: auto;
 		background: rgba(255,87,65,1);
 	}
 
-	.contactanos{
-		width: 100%;
-		height: 600px;
-		background: rgba(42,62,69,1);
-	}
-	.contactanos iframe{
-		width: 100%;
-		height: 100%;
-		margin:0 ;
-		border-radius: 2px;
-		border: 2px solid #ECE4E1;
-	}
-
-	.contactanos .form{
-		width:35%;
-		min-width: 280px;
-		height: 70%;
-		background: rgba(42,62,69,1);
-		position: relative;
-		top:-85%;
-		left: 50%;
-		border-radius: 5px;
-		opacity: 1;
-	}
-	.contactanos .form .row{
-		margin: .6em;
+	.servicios .row{
+		/*
+		width:300px;
+		height:320px;
+		*/
+		padding: 5% 6%;
 	}
 	.clientes{
 		width: 100%;
 		height: 600px;
 		background: rgba(245,245,245,1);
+	}
+	
+	.contactanos{
+		width: 100%;
+		height: auto;
+		background: rgba(255,254,253,1);
+	}
+	.contactanos .wrap{
+		padding: 2.3%;
+	}
+	.contactanos .wrap .mapa{
+		width: 50%;
+		min-width: 280px;
+		height: 450px;
+		border:2px solid #ccc;
+		border-radius: 4px;
+		position: relative;
+		left: 40%;
+		top:-450px;
+		padding: 5px;
+		margin:4% 5%;
+	}
+	.contactanos .wrap .mapa iframe{
+		width: 100%;
+		height: 100%;
+		margin:0 ;
+	}
+
+	.contactanos .wrap .form{
+		width:35%;
+		min-width: 280px;
+		min-width: 280px;
+		height: auto;
+		background: rgba(255,254,253,1);
+		border-radius: 5px;
+		opacity: 1;
+		position: relative;
+		left: 5%;
+		top: 6%;
+	}
+	.contactanos .wrap .form .panel{
+		border-color:white;
+	}
+	.contactanos .wrap .form .row{
+		margin: .6em;
 	}
 
 .oculto{
