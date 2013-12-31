@@ -316,10 +316,17 @@ div#pie {
 		height: 600px;
 		background: rgba(245,245,245,1);
 	}
-	.clientes img{
-		width: 80%;
-		height: 80%;
+	.clientes .img{
+		float: left;
+		width: 100%;
+		height: 100%;
+		margin-left: -10%;
+	}
+	.clientes .img img{
+		width: 100%;
+		height: 100%;
 		margin: auto 10%;
+		float: left;
 	}
 	.contactanos{
 		width: 100%;
@@ -394,7 +401,13 @@ div#pie {
 @media (max-width:770px){
 	.servicios .row .thumbnail{
 		height: auto;
+		width: 50%;
 	}
+	.clientes .img img{
+		width: 140%;
+	}
+
+
 }
 
 @media (max-width: 480px){
@@ -441,6 +454,13 @@ div#pie {
 	}
 
 	#pattern{
+	}
+	.clientes .img img{
+		width: 170%;
+	}
+	.servicios .row .thumbnail{
+		height: auto;
+		width: 80%;
 	}
 }
 
