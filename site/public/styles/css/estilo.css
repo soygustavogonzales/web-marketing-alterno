@@ -272,7 +272,9 @@ div#pie {
 		top:-40px;
 		left: 4%;
 	}
-	.row .sub:first-letter{/*Aplicamos letra capital*/
+
+	/*
+	.row .sub:first-letter{//Aplicamos letra capital
 		 float:left;
    color:black;
    font-size:50px;
@@ -280,8 +282,16 @@ div#pie {
    padding:2px;
    margin-right: 5px; 
 	}
+	*/
+
+	.nosotros .lateral{
+		font-size: 1.1em;
+	}
+	.nosotros .sub{
+		font-size: 1em;
+	}
 	.nosotros .sub-right{
-		border-left: 1px solid #ccc;
+
 	}
 	.servicios{
 		width: 100%;
@@ -309,7 +319,7 @@ div#pie {
 
 	.servicios .row i{
 		font-size: 100px;
-		margin: .1em 15% .1em 20%;
+		margin: .1em 0 .1em 20%;
 		text-shadow:1px 1px 18px rgba(0,0,0,.6);
 		color:rgba(0,0,0,.7);
 		border-radius: 50%;
@@ -350,9 +360,9 @@ div#pie {
 		height: 100%;
 	}
 	.clientes .img img{
-		width: 80%;
+		width: 90%;
 		height: 80%;
-		margin: 5% 10% 5% 10%;
+		margin: 2% 5% 0 4.5%;
 		position: absolute;
 	}
 	.contactanos{
@@ -404,6 +414,7 @@ div#pie {
 
 
 @media (max-width: 980px){
+
 	.nosotros .fila-1 .img:after{
 		padding: 10px 10%;
 	}
@@ -431,9 +442,6 @@ div#pie {
 		width: 50%;
 	}
 	.clientes .img img{
-		width: 140%;
-		height: 100%;
-		clip: rect(50px, 50px, 50px, 50px);
 	}
 
 
@@ -442,6 +450,10 @@ div#pie {
 @media (max-width: 480px){
 	body{
 		overflow-x:hidden;
+
+	}
+	.nosotros{
+		font-size: .9em;
 	}
 	#izquierda{
 		display: none;
@@ -503,12 +515,12 @@ div#pie {
 		width: 170%;
 		height: 100%;
 		clip: rect(30px, 410px,478px,40px);
-		margin: 0 -5%;
+		margin: 0 0;
 		vertical-align: middle;
 	}
 	.servicios .row .col{
 		width: 300px;
-		margin: 0 10px 0 0;
+		margin: 0 10px 0 10px;
 	}
 	.servicios .row .thumb{
 		height: auto;
@@ -520,7 +532,7 @@ div#pie {
 	.servicios .row .col{
 		width: 280px;
 		min-width: 280px;
-		margin: 10px 10px 0 -10px;
+		margin: 10px 10px 0 -3px;
 	}
 	.servicios .row .col .thumb{
 		text-align: center;
@@ -535,5 +547,12 @@ div#pie {
 	.servicios .row .thumb{
 		height: auto;
 		width: 100%;
+	}
+	.clientes .img img{
+		width: 170%;
+		height: 100%;
+		clip: rect(30px, 410px,478px,40px);
+		margin: 14% 0 0 -5%;
+		vertical-align: middle;
 	}
 }
