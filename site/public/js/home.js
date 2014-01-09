@@ -1,33 +1,22 @@
 ;!function(){
-   $.backstretch([
-    "../images/servicios/fondos/1.jpg",
-    "../images/servicios/fondos/2.jpg",
-    "../images/servicios/fondos/3.jpg",
-    "../images/servicios/fondos/4.jpg",
-    "../images/servicios/fondos/5.jpg"
-  ], {
-      fade: 750,
-      duration: 4000
-  });
-  var centro = $('.centro');
-  var fondoSlide = $('.backstretch');
-  centro.append(fondoSlide);
-      var dataSO = function(){
+    var l = console;
+    var dataSO = function(){
+
       var userAgent=navigator.userAgent;//devuelve una cadena con el nombre del navegador ,version, sistema operativo (nombre generico) del usuario,motor del navegador.
       var platform = navigator.platform;
       var getNameBrowser = function(string){
-        var resq=/(msie)|(firefox)|(chrome)|(opera)|(safari)|(android)/i.exec(string.toLowerCase());//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
-        resq = ((resq[0])?resq[0].toLowerCase():null);
+        var resq=/(msie)|(firefox)|(chrome)|(opera)|(safari)|(android)/ig.exec(string.toLowerCase());//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
+        resq = (resq?((resq[0])?resq[0].toLowerCase():null):null);
         return resq;
       }
       var getNameSO = function(string){
-        var resq=/(Win)|(Linux)|(Mac)/i.exec(string.toLowerCase());//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
-        resq = ((resq[0])?resq[0].toLowerCase():null);
+        var resq=/(Win)|(Linux)|(Mac)/ig.exec(string.toLowerCase());//resq sera una matriz que contendra las coincidencias encontradas en la cadena segun el patron
+        resq = (resq?((resq[0])?resq[0].toLowerCase():null):null);
         return resq;
       }
       var getNameDevice = function(string){
-        var resq = /(Linux)|(Win32)|(iPad)|(iPhone)|(MacIntel)|(iPod)/i.exec(string.toLowerCase());
-        resq = ((resq[0])?resq[0].toLowerCase():null);
+        var resq = /(Linux)|(Win32)|(iPad)|(iPhone)|(MacIntel)|(iPod)/ig.exec(string.toLowerCase());
+        resq = (resq?((resq[0])?resq[0].toLowerCase():null):null);
         return resq;
       }
       return {
@@ -37,18 +26,65 @@
       };
     }
     var dataStatic = {
-                                        browser:dataSO().browser,
-                                        so:dataSO().so,
-                                        device:dataSO().device
-                                      };
+                        browser:dataSO().browser,
+                        so:dataSO().so,
+                        device:dataSO().device
+                      };
     console.log(dataStatic);
+    var getVersionImage = function(data){
+      data = data || {
+        ruta :"/public/images/servicios/fondos/",//ruta de las imagenes
+        cantidad:"",//numero de imagenes
+        medida:"",//en blanco
+        extension:"jpg"//extension por default de las imagenes
+      }
+      var lista = [];
+      while(data.cantidad--){
+        lista.push(data.ruta+(data.cantidad+1)+(data.medida?".":"")+data.medida+"."+data.extension);
+      }
+      return lista;
+    }
+    var isPC = (dataStatic.so == "win"||dataStatic.so == "linux"||dataStatic.so == "mac");
+    var setBackground = function(esPC){
+      switch(true){
+        case(esPC)://si es PC
+           $.backstretch(getVersionImage({
+            ruta:"/public/images/servicios/fondos/",
+            cantidad:5,//cantidad de imagenes
+            medida:"",//version original
+            extension:"jpg"
+           }), {
+              fade: 750,
+              duration: 4000
+          });
+           l.log("es PC")
+        break;
+        case(!esPC)://es movil
+          $.backstretch(getVersionImage({
+            ruta:"/public/images/servicios/fondos/",
+            cantidad:5,//cantidad de imagenes
+            medida:"680x453",//version original
+            extension:"jpg"
+           }), {
+              fade: 750,
+              duration: 4000
+          });
+          l.log("es MOVIL")
+        break;
+        default:
+          l.log("alta probabilidad de que sea PC");
+      }
+    }
+    setBackground(isPC);
+  var centro = $('.centro');
+  var fondoSlide = $('.backstretch');
+  centro.append(fondoSlide);
     dataStatic.condicionBrowser = (dataStatic.browser=="chrome"||dataStatic.browser=="firefox"||dataStatic.browser=="safari");
     if(dataStatic.condicionBrowser){
       $('.control-menu').tooltip();
       console.log("tooltip activado")
     }
       
-    var l = console;
     var izquierda_bajo = $('#izquierda-bajo');
     var menu = $('.menu-p');
     var menu_oculto = $('._menu-p');
@@ -101,32 +137,36 @@
 
         var ancho_pantalla = $(window).width();
         var alto_pantalla = $(window).height();
-        var pattern = $("#pattern");
-        var fondoSlide = $('.backstretch');
-        pattern.width(ancho_pantalla);
-        pattern.height(fondoSlide.height());
+
+      var logo = $('#logo');
+      logo.ubicacion = "pc";
       if(ancho_pantalla<480){
-          $('.slicknav_menu').prepend($('#logo'));
+          $('.slicknav_menu').prepend(logo);
+          logo.ubicacion = "movil";
       }
+      /*Cada vez que se resetea el ancho del navegador*/
       $(window).on('resize',function(){
-        l.log("resize")
+        //l.log("resize")
         var _ancho_pantalla = $(window).width();
         var _alto_pantalla = $(window).height();
-        l.log("ancho :"+ _ancho_pantalla);
-        pattern.height(_alto_pantalla);
-        if(_ancho_pantalla<=480){
-          $('.slicknav_menu').prepend($('#logo'));
+        if(logo.ubicacion=="pc"&&_ancho_pantalla<=480){
+          $('.slicknav_menu').prepend(logo);
+          logo.ubicacion = "movil";
+          l.log("ancho :"+ _ancho_pantalla+ " version movil");
         }
-        else if(_ancho_pantalla>480){
-          $('#cuerpo').prepend($('#logo'));
+        else if(logo.ubicacion=="movil"&&_ancho_pantalla>480){
+          $('#cuerpo').prepend(logo);
+          logo.ubicacion = "pc";
+          l.log("ancho :"+ _ancho_pantalla+ " version pc");
         }
       })
+      /*Cada vez que se resetea el ancho del navegador*/
+      
       izquierda_bajo.estado = true;//open
-      var iconoBtnControlMenu = $('.control-menu>.glyphicon');
+      var iconoBtnControlMenu = $('.control-menu>.fa');
       var btnControlMenu = $('.control-menu');
 
       btnControlMenu.on('click',function(e){
-
         var b = $('.control-menu')[0];//cojo al elemento en su forma nativa como javascript
         var margen_izquierdo = izquierda_bajo.width() - 20;
         if(izquierda_bajo.estado){
@@ -134,8 +174,8 @@
             "left": "-="+margen_izquierdo+"px"},
             900, function() {
             izquierda_bajo.estado = false;
-            iconoBtnControlMenu.removeClass('glyphicon-chevron-left');
-            iconoBtnControlMenu.addClass('glyphicon-chevron-right');
+            iconoBtnControlMenu.removeClass('fa-chevron-left');
+            iconoBtnControlMenu.addClass('fa-chevron-right');
             izquierda_bajo.css({
               "visibility":"hidden"
             });
@@ -152,8 +192,8 @@
               "left": "+="+margen_izquierdo+"px"},
               700, function() {
               izquierda_bajo.estado = true;
-              iconoBtnControlMenu.removeClass('glyphicon-chevron-right');
-              iconoBtnControlMenu.addClass('glyphicon-chevron-left');
+              iconoBtnControlMenu.removeClass('fa-chevron-right');
+              iconoBtnControlMenu.addClass('fa-chevron-left');
               izquierda_bajo.css({
                 "visibility":"visible"
               });
@@ -163,7 +203,50 @@
             })//function
         }//else 
       });//btnControlMenu.on("click",...)
+  
+/*SECCION CONTACTANOS*/
+  $("#formID").validationEngine('attach',{
+    onValidationComplete : function(form,status){
+      l.log(form + " : " + status);
+      if(status){
+        enviar();
+        //l.log($(this).contents());
+      }
+    }
+  });
+
+var enviar = function(){
+
+  var name = $("#formID .name").val(),
+  email = $("#formID .email").val(),
+  telefono = $("#formID .telefono").val(),
+  message = $("#formID .message").val(),
+  modalMessage = $("#Message"),
+  data = {
+    nombre:name,
+    email:email,
+    telefono:telefono,
+    mensaje:message,
+  };
+  l.log(data)
+  //reset.trigger('click');
+  modalMessage.modal('show');
+  $.ajax({
+    url: '/public/php/contacto.php',
+    type: 'POST',
+    dataType: 'json',
+    data: {query:data}
+  })
+  .done(function(estado) {//estado es la respuesta
+    if(estado=="true"){
+      modalMessage.modal('show');
+      l.log("msj. enviado, se mostro el modal!!");
+    }else{
+      l.log("error al enviar");
+    }
+  });
+
+}//function enviar()
+/****SECCION CONTACTANOS*/
 
 }(window,jQuery,undefined)
-
-
