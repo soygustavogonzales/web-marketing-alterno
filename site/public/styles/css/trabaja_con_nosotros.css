@@ -1,0 +1,9 @@
+*{
+	box-sizing:border-box;
+}
+.datosPostulante{
+	margin: auto auto 0 30%;
+}
+#web{
+	background: #F2F1F0;
+}

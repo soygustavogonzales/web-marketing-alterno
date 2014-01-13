@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en" ng-app="PostulanteApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+			<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Nixie+One' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Bubbler+One' rel='stylesheet' type='text/css'>
+			<link href='http://fonts.googleapis.com/css?family=Alegreya+Sans' rel='stylesheet' type='text/css'>
+			<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+			<link rel="stylesheet" href="/public/styles/fonts/font-awesome-4.0.3/css/font-awesome.min.css">
+			<link rel="stylesheet" href="/public/styles/css/validationEngine.jquery.css">
+			<link rel="stylesheet" href="/public/styles/css/trabaja_con_nosotros.css">
+</head>
+<body>
+	<div id="Web">
+		<form ng-controller="postulanteCtrl" class="datosPostulante">
+			<fieldset>
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="col-md-offset-4">
+									<i class="fa fa-user fa-1x"></i>	
+									<label>Datos Personales</label>
+								</div>
+							</div><!-- .panel-heading -->
+							<div class="panel-body">
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="nombre(s)" required>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="apellido materno" required>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="apellido paterno" required>
+								</div>
+								<div class="form-group">
+									<select class="form-control" id=""><!--sexo  -->
+										<option></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<select class="form-control" id=""><!--estado civil  -->
+										<option></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<select class="form-control" id=""><!--nacionalidad  -->
+										<option></option>
+									</select>
+								</div>
+							</div><!-- .panel-body -->
+						</div><!-- .panel-default-->
+					</div><!-- .col-lg-4 -->
+				</div><!-- .row -->
+			</fieldset>
+			<fieldset>
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="col-md-offset-4">
+									<i class="fa fa-user fa-1x"></i>	
+									<label>Datos de Contacto</label>
+								</div>
+							</div><!-- .panel-heading -->
+							<div class="panel-body">
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="correo" required>
+								</div>
+								<div class="form-group">
+									<input type="tel" class="form-control" placeholder="telefono" required>
+								</div>
+								<div class="form-group">
+									<input type="number" class="form-control" placeholder="celular" required>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="domicilio" required>
+								</div>
+								<div class="form-group">
+									<input type="text" class="form-control" placeholder="referencia de domicilio" required>
+								</div>
+							</div><!-- .panel-body -->
+						</div><!-- .panel-default-->
+					</div><!-- .col-lg-4 -->
+				</div><!-- .row -->
+			</fieldset>
+			<fieldset>
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="col-md-offset-4">
+									<i class="fa fa-user fa-1x"></i>	
+									<label>Datos de Estudios/Experiencia</label>
+								</div>
+							</div><!-- .panel-heading -->
+							<div class="panel-body">
+								<div class="form-group">
+									<select class="form-control" name="grado-estudio"><!--grado de estudio  -->
+										<option></option>
+									</select>
+								</div>
+								<div class="form-group">
+									<input type="email" class="form-control" placeholder="institucion" required>
+								</div>
+								<div class="form-group">
+									<input type="tel" class="form-control" placeholder="especialidad" required>
+								</div>
+								<div class="form-group">
+									<select class="form-control" name="estado-estudio"><!--Estado de estudio  -->
+										<option></option>
+									</select>
+								</div>
+							</div><!-- .panel-body -->
+						</div><!-- .panel-default-->
+					</div><!-- .col-lg-4 -->
+				</div><!-- .row -->
+			</fieldset>
+			<fieldset>
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="col-md-offset-4">
+									<i class="fa fa-user fa-1x"></i>	
+									<label>Detalle de Postulacion</label>
+								</div>
+							</div><!-- .panel-heading -->
+							<div class="panel-body">
+								<select class="form-control" id="" name="puesto"><!--puesto al que postsula  -->
+									<option></option>
+								</select>
+							</div><!-- .panel-body -->
+						</div><!-- .panel-default-->
+					</div><!-- .col-lg-4 -->
+				</div><!-- .row -->	
+			</fieldset>
+			<fieldset class="datos-especiales">
+				<div class="row">
+					<div class="col-lg-5">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="col-md-offset-4">
+									<i class="fa fa-user fa-1x"></i>	
+									<label>Datos de Especiales</label>
+								</div>
+							</div><!-- .panel-heading -->
+							<div class="panel-body">
+								<div class="form-group">
+									<input type="peso" class="form-control" placeholder="institucion" required>
+								</div>
+								<div class="form-group">
+									<input type="talla" class="form-control" placeholder="especialidad" required>
+								</div>
+								<div class="form-group">
+									<label for="foto">Elegir foto</label><input type="file" name="foto">
+								</div>
+							</div><!-- .panel-body -->
+						</div><!-- .panel-default-->
+					</div><!-- .col-lg-4 -->
+				</div><!-- .row -->
+			</fieldset>
+		</form>
+	</div>
+</body>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="/public/js/angular.min.js"></script>
+	<script src="/public/js/trabaja_con_nosotros.js"></script>
+</html>

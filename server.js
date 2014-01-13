@@ -13,7 +13,7 @@ app.configure(function(){
 })
 
 app.get('/',function(req,res){
-	res.sendfile(__dirname+'/site/'+'index.min.html');
+	res.sendfile(__dirname+'/site/'+'index.html');
 });
 
 app.get('/:file',function(req,res){
