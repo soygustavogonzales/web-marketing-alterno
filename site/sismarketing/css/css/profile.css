@@ -1,0 +1,70 @@
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com.
+    Modificated by Gustavo Gonzales on January 2013.
+  ---------------------------------------------------*/
+body {
+  background: #6fc2b0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c8886d), color-stop(1, #6fc2b0));
+  background: -ms-linear-gradient(bottom, #c8886d, #6fc2b0);
+  background: -moz-linear-gradient(center bottom, #c8886d 0%, #6fc2b0 100%);
+  background: -o-linear-gradient(#6fc2b0, #c8886d);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6fc2b0', endColorstr='#c8886d', GradientType=0);
+}
+#web {
+  min-height: 700px;
+  width: 100%;
+}
+#web .superior {
+  min-height: 60px;
+  background: rgba(64, 63, 59, 0.9);
+}
+#web .wrap {
+  width: 95%;
+  margin: 0 auto;
+  display: inline-block;
+}
+#web .wrap .sidebar-lateral {
+  width: 20%;
+  background: rgba(240, 240, 240, 0.8);
+  min-height: 600px;
+  float: left;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 2px;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 2px;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+#web .wrap .cuerpo {
+  width: 77%;
+  min-height: 600px;
+  background: rgba(240, 240, 240, 0.8);
+  float: right;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}

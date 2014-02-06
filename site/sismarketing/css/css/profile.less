@@ -1,0 +1,38 @@
+@import "mixins_of_less.less";
+
+@color-black:rgba(64, 63, 59, 0.9);
+@color-fondo1:rgba(111,194,176,1);
+@color-fondo2:rgba(200,136,109,1);
+@color-elementos:rgba(240, 240, 240, 0.8);
+@medida-angle-round:2px;
+body{
+	.gradient(@color-fondo1,@color-fondo2,@color-fondo1);
+}
+#web{
+	min-height: 700px;
+	width: 100%;
+		.superior{
+			min-height: 60px;
+			background:@color-black; 
+		}
+	.wrap{
+			width: 95%;
+			margin: 0 auto;
+			display: inline-block;
+		.sidebar-lateral{
+			width:20%; 
+			background: @color-elementos;
+			min-height: 600px;
+			float: left;
+			.border-radius(0,@medida-angle-round);
+		}
+		.cuerpo{
+			width:77%;
+			min-height: 600px;
+			background: @color-elementos;
+			float: right;
+			.border-radius(0,0,@medida-angle-round,0);
+		}
+
+	}
+}

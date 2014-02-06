@@ -21,6 +21,7 @@ app.configure(function(){
 });
 
 /*
+*/
 var watchFilesLess = function(listaLibros){
 	listaLibros.forEach(function(pathBook,key){
 		console.log(pathBook);
@@ -35,38 +36,16 @@ var watchFilesLess = function(listaLibros){
 	})
 }
 
-*/
-	var rutas = [
-	__dirname+'/site/sismarketing/css/profile.less'//custom styles for profile.php|profile.html|profile.jade
-	,__dirname+'/site/sismarketing/css/style.less'//custom styles for login.php|login.html|login.jade 
+	var rutasLess = [
+	__dirname+'/site/sismarketing/css/css/profile.less'//custom styles for profile.php|profile.html|profile.jade
+	,__dirname+'/site/sismarketing/css/css/style.less'//custom styles for login.php|login.html|login.jade 
 	];
 
-console.log(rutas);
+watchFilesLess(rutasLess);
+//console.log(rutas);
+
 	var lessFile = __dirname+'/site/public/styles/css/trabaja_con_nosotros.less';
-	fs.watchFile(rutas[0],function(after,current){	
-		var cssFile = toCss(rutas[0],{
-			less:less,
-			fs:fs,
-			path:path
-		})
-	});
 
-	fs.watchFile(rutas[1],function(after,current){	
-		var cssFile = toCss(rutas[1],{
-			less:less,
-			fs:fs,
-			path:path
-		})
-	});
-
-	fs.watchFile(rutas[2],function(after,current){	
-		var cssFile = toCss(rutas[2],{
-			less:less,
-			fs:fs,
-			path:path
-		})
-	});
-	
 app.get('/',function(req,res){
 	res.sendfile(__dirname+'/site/'+'index.html');
 });
@@ -76,19 +55,19 @@ app.get('/:file',function(req,res){
 	res.sendfile(__dirname+'/site/'+pagina);
 });
 
-app.get('/sismarketing/index.min.php/login',function(req,res){
+app.get('/sismarketing/login',function(req,res){
 	res.render(__dirname+'/site/sismarketing/application/views/login.jade',{pretty:true})
 	//res.sendfile(__dirname+"/site/sismarketing/application/views/index.html");
 })
 
-app.post('/sismarketing/index.min.php/loginsend',function(req,res){
+app.post('/sismarketing/loginsend',function(req,res){
 	var data = req.body.data;
 	console.log(req.body);
 	console.log(data);
 	res.send("true")
 })
 
-app.get('/sismarketing/index.min.php/:file',function(req,res){
+app.get('/sismarketing/:file',function(req,res){
 	var pagina = req.params.file;
 	console.log(pagina);
 	res.render(__dirname+'/site/sismarketing/application/views/'+pagina,{pretty:true})

@@ -1,16 +1,12 @@
-extends layout_padre
-block head
-	link(rel="stylesheet", href="/sismarketing/application/views/public/styles/bootstrap/css/bootstrap.min.css")
-	link(rel="stylesheet", href="/sismarketing/application/views/public/styles/bootstrap/css/bootstrap-theme.min.css")
-	link(rel="stylesheet", href="/sismarketing/application/views/public/styles/fonts/font-awesome-4.0.3/css/font-awesome.min.css")
-	link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Anaheim")
-	link(rel="stylesheet", href="/sismarketing/application/views/public/styles/style.css")
+extends layout_hijo
+
+block head_sub
+	link(rel="stylesheet",href="/sismarketing/css/css/style.css")
 block content 
 	#web(ng-controller="loginCtrl")
 		.login
 			.row
-				.title(class="well col-md-6")
-					|Bienvenido a Sismarketing
+				.title(class="well col-md-6")|Bienvenido a Sismarketing
 			.row
 				.well(class="col-md-6")
 					fieldset
@@ -36,6 +32,3 @@ block content
 									input(type="checkbox")
 									|Olvide mi contraseña
 								button.btn(class="submit btn-danger btn-lg btn-block",type="submit",ng-disabled="loginForm.$invalid")|Login
-block import_sub
-		
-
