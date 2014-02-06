@@ -1,0 +1,99 @@
+{
+ "tipoUsuario":"Postulante/RRHH/Ejecutivo/Administrador/Director Cuenta/...",
+ "accesos":[
+     {
+         "nombre":"Modificar datos",
+         "URI":[
+                 {
+                    "nombre":"actualizarDatos",
+                    "uri":"../../"
+                 }                    
+             ],
+        "contenido":{
+            "formulario":[
+             {
+                 "nombre":"nombres",
+                 "nodo":"input",
+                 "type":"text",
+                 "value":"valor original"
+             },
+             {
+                "nombre":"apellido paterno",
+                 "nodo":"input",
+                 "type":"text",                 
+                 "value":"valor original"
+             },
+             {
+                 "nombre":"apellido materno",
+                 "nodo":"input",
+                 "type":"text",
+                 "value":"valor original"
+             },
+             {
+                 "nombre":"Estado civil",
+                 "nodo":"select",
+                 "options":[
+                     "Casado(a)",
+                     "Soltero(a)",
+                     "Viudo(a)",
+                     "Divorciado(a)"
+                     ],
+                 "selected":"el item que fue seleccionado originalmente"
+             },
+             {
+                 "nombre":"dni",
+                 "nodo":"input",
+                 "type":"number",
+                 "value":"valor original"
+             },
+             {
+                 "nombre":"correo",
+                 "nodo":"input",
+                 "type":"email",
+                 "value":"valor original"
+             },
+             {
+                 "nombre":"telefono",
+                 "nodo":"input",
+                 "type":"number",
+                 "value":"valor original"
+             },
+             {
+                 "nombre":"celular",
+                 "nodo":"input",
+                 "type":"number",
+                 "value":"valor original"
+             },
+             {
+                 "nombre":"domicilio",
+                 "nodo":"input",
+                 "type":"text",
+                 "value":"valor original"
+             },
+             {
+                 "nombre":"referemcia domicilio",
+                 "nodo":"input",
+                 "type":"text",
+                 "value":"valor original"
+             } 
+                 
+         ]    
+        }
+        
+             
+     },
+     {
+         "nombre":"Mis postulaciones",
+         "URI":[
+                 {
+                    "nombre":"guardarPostulacion",
+                    "uri":"../../"
+                 }
+             ],
+         "contenido":{
+             "formulario":[]
+         }
+     }
+     
+ ]
+}
