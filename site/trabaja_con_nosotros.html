@@ -15,10 +15,11 @@
 </head>
 <body>
 	<div id="web">
-		<form ng-controller="postulanteCtrl" class="datosPostulante">
+		<form ng-controller="postulanteCtrl" name="datosPostulante" class="datosPostulante" id="datosPostulante">
+			<legend>Unete a nosotros</legend>
 			<fieldset>
 				<div class="row">
-					<div class="col-lg-5">
+					<div class="col-md-9">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<div class="title">
@@ -29,31 +30,34 @@
 							<div class="panel-body">
 								<div class="col-md-9">
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="nombre(s)" required>
+										<input type="text" name="nombres" class="form-control validate[required] nombres" placeholder="nombre(s)" >
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="apellido materno" required>
+										<input type="text" class="form-control validate[required] ap_paterno" placeholder="apellido paterno" >
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="apellido paterno" required>
+										<input type="text" class="form-control validate[required] ap_materno" placeholder="apellido materno" >
 									</div>
 									<div class="form-group">
-										<select class="form-control"><!--sexo  -->
+										<select class="form-control validate[required] sexo" ><!--sexo  -->
 											<option ng-repeat="s in sexo">{{s}}</option>
 										</select>
 									</div>
 									<div class="form-group">
-										<select class="form-control" id=""><!--estado civil  -->
+										<select class="form-control validate[required] estado_civil" id=""><!--estado civil  -->
 											<option ng-repeat="e in estado_civil">{{e}}</option>
 										</select>
 									</div>
 									<div class="form-group">
-										<select class="form-control" id=""><!--nacionalidad  -->
+										<select class="form-control validate[required] nacionalidad" id=""><!--nacionalidad  -->
 											<option ng-repeat="n in nacionalidad">{{n}}</option>
 										</select>
 									</div>
 									<div class="form-group">
-										<label for="fecha_nac">fecha nacimiento</label><input class="form-control" type="date" name="fecha_nac"><!--fecha nacimiento  -->
+										<input type="number" class="form-control validate[required,minSize[8],maxSize[10],custom[onlyLetterNumber]] dni" placeholder="dni"><!--dni  -->
+									</div>
+									<div class="form-group">
+										<label for="fecha_nac">fecha nacimiento</label><input class="form-control validate[required] fecha_nac" type="date" name="fecha_nac" min="1950-01-01" max="1996-01-01"><!--fecha nacimiento  -->
 									</div>
 								</div>
 							</div><!-- .panel-body -->
@@ -63,7 +67,7 @@
 			</fieldset>
 			<fieldset>
 				<div class="row">
-					<div class="col-lg-5">
+					<div class="col-md-9">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<div class="title">
@@ -74,21 +78,20 @@
 							<div class="panel-body">
 								<div class="col-md-9">
 									<div class="form-group">
-										<input type="email" class="form-control" placeholder="correo" required>
+										<input type="email" class="form-control validate[required] email" placeholder="correo" >
 									</div>
 									<div class="form-group">
-										<input type="tel" class="form-control" placeholder="telefono" required>
+										<input type="tel" class="form-control validate[required,custom[onlyLetterNumber]] telefono" placeholder="telefono" >
 									</div>
 									<div class="form-group">
-										<input type="number" class="form-control" placeholder="celular" required>
+										<input type="tel" class="form-control validate[required,custom[onlyLetterNumber]] celular" placeholder="celular" >
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="domicilio" required>
+										<input type="text" class="form-control validate[required] domicilio" placeholder="domicilio" >
 									</div>
 									<div class="form-group">
-										<input type="text" class="form-control" placeholder="referencia de domicilio" required>
+										<input type="text" class="form-control validate[required] referencia_doc" placeholder="referencia de domicilio" >
 									</div>
-									
 								</div>
 							</div><!-- .panel-body -->
 						</div><!-- .panel-default-->
@@ -97,7 +100,7 @@
 			</fieldset>
 			<fieldset>
 				<div class="row">
-					<div class="col-lg-5">
+					<div class="col-md-9">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<div class="title">
@@ -108,18 +111,18 @@
 							<div class="panel-body">
 								<div class="col-md-9">
 									<div class="form-group">
-										<select class="form-control" name="grado-estudio"><!--grado de estudio  -->
+										<select class="form-control validate[required] grado_estudio" name="grado_estudio"><!--grado de estudio  -->
 											<option ng-repeat="g in grado_estudio">{{g}}</option>
 										</select>
 									</div>
 									<div class="form-group">
-										<input type="email" class="form-control" placeholder="institucion" required>
+										<input type="text" class="form-control validate[required] institucion" placeholder="institucion" >
 									</div>
 									<div class="form-group">
-										<input type="tel" class="form-control" placeholder="especialidad" required>
+										<input type="text" class="form-control validate[required] especialidad" placeholder="especialidad" >
 									</div>
 									<div class="form-group">
-										<select class="form-control" name="estado-estudio"><!--Estado de estudio  -->
+										<select class="form-control validate[required] estado_estudio" name="estado_estudio"><!--Estado de estudio  -->
 											<option ng-repeat="e in estado_estudio">{{e}}</option>
 										</select>
 									</div>
@@ -131,18 +134,19 @@
 			</fieldset>
 			<fieldset>
 				<div class="row">
-					<div class="col-lg-5">
+					<div class="col-md-9">
 						<div class="well well-lg-5">
-								<select class="form-control" name="puesto"><!--puesto al que postula -->
-									<option ng-repeat="p in puestos">{{p.puesto_nombre}}</option>
-								</select>
+								<select ng-model="puesto" ng-options="puesto.puesto_nombre for puesto in puestos" class="form-control validate[required]" name="puesto">
+								</select><!--puesto al que postula -->
+								<label>{{puesto.puesto_requiere}}</label>
+								<label for="cv">Subir CV: </label><input type="file" value="Subir CV" name="cv" class="form-control validate[required] cv">
 						</div>
 					</div><!-- .col-lg-4 -->
 				</div><!-- .row -->	
 			</fieldset>
 			<fieldset class="datos-especiales">
-				<div class="row">
-					<div class="col-lg-5">
+				<div class="row" ng-show="puesto.puesto_requiere == 02">
+					<div class="col-md-9">
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<div class="title">
@@ -153,13 +157,13 @@
 							<div class="panel-body">
 								<div class="col-md-9">
 										<div class="form-group">
-											<input type="peso" class="form-control" placeholder="peso" required>
+											<input type="number" class="form-control validate[required,custom[number],min[25],max[150]] peso" placeholder="peso(kilos)" >
 										</div>
 										<div class="form-group">
-											<input type="talla" class="form-control" placeholder="talla" required>
+											<input type="number" class="form-control validate[required,custom[number],min[1.3].min[2.4] talla" placeholder="talla(metros)" >
 										</div>
 										<div class="form-group">
-											<label for="foto">Elegir foto</label><input type="file" name="foto">
+											<label for="foto">Elegir foto</label><input type="file" name="foto" class="form-control validate[required] foto">
 										</div>
 								</div>
 							</div><!-- .panel-body -->
@@ -167,13 +171,18 @@
 					</div><!-- .col-lg-4 -->
 				</div><!-- .row -->
 			</fieldset>
-			<button class="btn btn-primary" data-toggle="modal" data-target="#myModal">BOTON</button>
+			<div class="botonera">
+				<button class="submit btn btn-default">ENVIAR</button>
+			</div>
 		</form>
 	</div>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 	<script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 	<script src="/public/js/lib/modernizr.custom.88281.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+	<script src="/public/js/lib/jquery.validationEngine-en.js"></script>
+	<script src="/public/js/lib/jquery.validationEngine.js"></script>
+	<script src="/public/js/lib/upload.js"></script>
 	<script src="/public/js/lib/angular.min.js"></script>
 	<script src="/public/js/app.js"></script>
 	<script src="/public/js/factorys.js"></script>

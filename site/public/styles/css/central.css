@@ -7339,6 +7339,18 @@ td.visible-print {
 				text-decoration: none;
 				width: 175px;
 			}
+      #pie i:hover{
+        font-size: 1.6em;
+      }
+      #pie a{
+        text-decoration: none;
+      }
+      #pie a:link{
+        color:currentcolor;
+      }
+      #pie a:visited{
+        color:currentcolor;
+      }
 			#izquierda-bajo{
 				background: rgba(0,0,0,.6);
 				position: relative;
@@ -7559,6 +7571,31 @@ td.visible-print {
 					margin: .6em;
 				}
 
+        #footer{
+          width: 100%;
+          height: 50px;
+          color:rgba(255,255,255,1);
+          background: rgba(66,65,60,.8);    
+        }
+        #footer a{
+          text-decoration: none;
+        }
+        #footer a:hover{
+          cursor:pointer;
+          text-shadow:0 0 5px rgba(0,0,0.7);
+        }
+        #footer a:link{
+          color:rgba(255,255,255,1);
+        }
+        #footer a:visited{
+          color:rgba(255,255,255,1);
+        }
+        #footer .links{
+          padding: 10px;
+          font-size: 16px;
+          float: right;
+          color:rgba(255,255,255,1);
+        } 
 			.oculto{
 				display: none;
 				visibility: hidden;

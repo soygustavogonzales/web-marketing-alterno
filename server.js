@@ -10,21 +10,63 @@ server = http.createServer(app);
 app.configure(function(){
 	app.set('port',process.env.PORT||8080);
 	app.use('/public',express.static(__dirname+"/site/public"));
+	app.use('/sismarketing',express.static(__dirname+"/site/sismarketing"));
 	app.use("views",__dirname+"/views");
 	app.use(express.bodyParser());
+	app.use(app.router);
 	app.set('view engine','jade');
-});
-
-var lessFile = __dirname+'/site/public/styles/css/trabaja_con_nosotros.less';
-fs.watchFile(lessFile,function(after,current){	
-	var cssFile = toCss(lessFile,{
-		less:less,
-		fs:fs,
-		path:path
+	app.use(function(req,res){
+		res.send(404,"<h1>OOps Page not found !!</h1>");
 	})
 });
 
-l(toCss(lessFile,{less:less,fs:fs,path:path}))
+/*
+var watchFilesLess = function(listaLibros){
+	listaLibros.forEach(function(pathBook,key){
+		console.log(pathBook);
+		fs.watchFile(pathBook,function(after,current){	
+			var cssFile = toCss(pathBook,{
+				less:less,
+				fs:fs,
+				path:path
+			})
+			console.log("css creado");
+		});
+	})
+}
+
+*/
+	var rutas = [
+	__dirname+'/site/sismarketing/css/profile.less'//custom styles for profile.php|profile.html|profile.jade
+	,__dirname+'/site/sismarketing/css/style.less'//custom styles for login.php|login.html|login.jade 
+	];
+
+console.log(rutas);
+	var lessFile = __dirname+'/site/public/styles/css/trabaja_con_nosotros.less';
+	fs.watchFile(rutas[0],function(after,current){	
+		var cssFile = toCss(rutas[0],{
+			less:less,
+			fs:fs,
+			path:path
+		})
+	});
+
+	fs.watchFile(rutas[1],function(after,current){	
+		var cssFile = toCss(rutas[1],{
+			less:less,
+			fs:fs,
+			path:path
+		})
+	});
+
+	fs.watchFile(rutas[2],function(after,current){	
+		var cssFile = toCss(rutas[2],{
+			less:less,
+			fs:fs,
+			path:path
+		})
+	});
+	
 app.get('/',function(req,res){
 	res.sendfile(__dirname+'/site/'+'index.html');
 });
@@ -34,13 +76,38 @@ app.get('/:file',function(req,res){
 	res.sendfile(__dirname+'/site/'+pagina);
 });
 
-app.get('/sismarketing/puestos',function(req,res){
+app.get('/sismarketing/index.min.php/login',function(req,res){
+	res.render(__dirname+'/site/sismarketing/application/views/login.jade',{pretty:true})
+	//res.sendfile(__dirname+"/site/sismarketing/application/views/index.html");
+})
+
+app.post('/sismarketing/index.min.php/loginsend',function(req,res){
+	var data = req.body.data;
+	console.log(req.body);
+	console.log(data);
+	res.send("true")
+})
+
+app.get('/sismarketing/index.min.php/:file',function(req,res){
+	var pagina = req.params.file;
+	console.log(pagina);
+	res.render(__dirname+'/site/sismarketing/application/views/'+pagina,{pretty:true})
+	//res.sendfile(__dirname+"/site/sismarketing/application/views/index.html");
+})
+
+
+app.get('/sismarketing/index.min.php/puestos/',function(req,res){
 	res.json([
-		{puesto_id:'1',puesto_nombre:'promotor',puesto_descripcion:'descripcion de promotor'},
-		{puesto_id:'2',puesto_nombre:'anfitrion',puesto_descripcion:'descripcion de anfitrion'},
-		{puesto_id:'3',puesto_nombre:'mercaderista',puesto_descripcion:'descripcion de mercaderista'}
+		{puesto_id:'1',puesto_nombre:'promotor',puesto_descripcion:'descripcion de promotor',puesto_require:"01"},
+		{puesto_id:'2',puesto_nombre:'anfitrion',puesto_descripcion:'descripcion de anfitrion',puesto_require:"02"},
+		{puesto_id:'3',puesto_nombre:'mercaderista',puesto_descripcion:'descripcion de mercaderista',puesto_require:"01"},
+		{puesto_id:'3',puesto_nombre:'sistemas',puesto_descripcion:'descripcion de sistemas',puesto_require:"01"}
 		])
 });
+app.put('/sismarketing/index.min.php/seleccioncontrol/postulantecontrol/guardarpostulante',function(req,res){
+	console.log(req.body.data);
+	res.send(true);
+})
 server.listen(app.get('port'),function(){
 	l("server running in port: "+app.get('port'));
 });

@@ -1,0 +1,41 @@
+extends layout_padre
+block head
+	link(rel="stylesheet", href="/sismarketing/application/views/public/styles/bootstrap/css/bootstrap.min.css")
+	link(rel="stylesheet", href="/sismarketing/application/views/public/styles/bootstrap/css/bootstrap-theme.min.css")
+	link(rel="stylesheet", href="/sismarketing/application/views/public/styles/fonts/font-awesome-4.0.3/css/font-awesome.min.css")
+	link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Anaheim")
+	link(rel="stylesheet", href="/sismarketing/application/views/public/styles/style.css")
+block content 
+	#web(ng-controller="loginCtrl")
+		.login
+			.row
+				.title(class="well col-md-6")
+					|Bienvenido a Sismarketing
+			.row
+				.well(class="col-md-6")
+					fieldset
+						legend|Login
+						form.form-horizontal(name="loginForm",ng-submit="submitForm()",novalidate)
+							.row
+								.form-group(class="input-grup-lg")
+									label.control-label(for="email",class="col-sm-3")|email:
+									.input-group(class="col-sm-9")
+										span.input-group-addon|@
+										input#email(type="email",class="email form-control",placeholder="email",name="email",ng-model="email",ng-minlength="5",required)
+									i.fa(class="senal fa-{{validationStyle(loginForm.email,'smile-o','frown-o')}} form-control-feedback")	
+							.row
+								.form-group
+									label.control-label(for="password",class="col-sm-3")|password:
+									.input-group(class="input-grup-lg")		
+										span.input-group-addon
+											i.fa(class="fa-key")
+										input(type="password",class="password form-control",placeholder="password",name="password",ng-model="password",required)
+									i.fa(class="senal fa-{{validationStyle(loginForm.password,'smile-o','frown-o')}} form-control-feedback")	
+							.row(class="footer")
+								label.checkbox-inline
+									input(type="checkbox")
+									|Olvide mi contraseña
+								button.btn(class="submit btn-danger btn-lg btn-block",type="submit",ng-disabled="loginForm.$invalid")|Login
+block import_sub
+		
+

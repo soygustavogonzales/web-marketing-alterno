@@ -20,7 +20,8 @@ var toCss = function (pathLess,modules){
                        })(files_less[0])//['../autoReload/public/stylessheet/less']
         ,outputDir    :(function(ruta){
                           ruta = ruta.substring(0,ruta.lastIndexOf('/'));
-                          return ruta.substring(0,ruta.lastIndexOf('/'))+'/css';
+                          //return ruta.substring(0,ruta.lastIndexOf('/'));
+                          return ruta;
                        })(files_less[0])//"../autoReload/public/stylessheet/css"
         ,optimization :1
         ,filename     :files_less[0].substring(files_less[0].lastIndexOf("/")+1,files_less[0].length)
