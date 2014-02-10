@@ -1,10 +1,78 @@
 extends layout_profile
 block superior
 	.wrap-s
-		|Estamos en el superior
+		nav.navbar(class="navbar-inverse",role="navigation")
+			.container-fluid
+				.navbar-header
+					button.navbar-toggle(type="button",data-toggle="collapse",data-target="#bs-example-navbar-collapse-1")
+						span.sr-only|Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href="#")|Sismarketing
+				.collapse(id="#bs-example-navbar-collapse-1",class="navbar-collapse")					
+					ul.nav(class="navbar-nav")
+						li.active
+							a(href="#")|Link
+						li
+							a(href="#")|Link
+						li.dropdown
+							a.dropdown-toggle(href="#",data-toggle="dropdown")|Dropdown
+								b.caret
+							ul.dropdown-menu
+								li
+									a(href="#")|un link
+								li
+									a(href="#")|un link
+								li.divider
+								li
+									a(href="#")|un link
+					form.navbar-form(class="navbar-left",id="",role="search")				
+						.form-group
+							input(type="text",class="form-control",placeholder="Search")
+						button.btn(type="submit",class="btn-default")|Submit	
+					ul.nav(class="navbar-nav navbar-rigth")		
+						li
+							a.dropdown-toggle(href="#",data-toggle="dropdown")|Dropdown
+								b.caret
+							ul.dropdown-menu
+								li
+									a(href="#")|un link
+								li
+									a(href="#")|un link
+								li.divider
+								li
+									a(href="#")|un link
 block lateral
-	.wrap-l
-		|Estamos en el lateral
+	.wrap-l(id="sidr")
+		.lat-header
+			.foto(ng-click="mover($event)")
+				img(src="", alt="")
+				i.fa(class="fa-user fa-5x")
+		.lat-content
+			ul.list-group
+				li.list-group-item
+					a(href="#")|Modificar datos
+						i.fa(class="fa-cog fa-2x")
+				li.list-group-item
+					a(href="#")|Acceso 2
+						i.fa(class="fa-coffee fa-2x")
+				li.list-group-item
+					a(href="#")|Acceso 3
+						i.fa(class="fa-dashboard fa-2x")
+				li.list-group-item
+					a(href="#")|Acceso 4
+						i.fa(class="fa-edit fa-2x")
+				li.list-group-item
+					a(href="#")|Acceso 5
+						i.fa(class="fa-comments fa-2x")
+				li.list-group-item
+					a(href="#")|Acceso 6
+						i.fa(class="fa-cloud fa-2x")
+				li.list-group-item
+					a(href="#")|Acceso 7
+						i.fa(class="fa-compass fa-2x")
+		.lat-footer
 block cuerpo-principal
 	.wrap-p
 		|Estamos en el cuerpo

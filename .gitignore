@@ -2,3 +2,4 @@
 site/views/menu-responsive.html
 site/views/validacion_form.html
 node_modules/
+*.php

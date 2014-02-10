@@ -1,37 +1,132 @@
 @import "mixins_of_less.less";
 
-@color-black:rgba(64, 63, 59, 0.9);
-@color-fondo1:rgba(111,194,176,1);
-@color-fondo2:rgba(200,136,109,1);
-@color-elementos:rgba(240, 240, 240, 0.8);
-@medida-angle-round:2px;
+@cblack:rgba(64, 63, 59, 0.9);
+@cfondo1:rgba(111,194,176,1);
+@cfondo2:rgba(200,136,109,1);
+@ccajas:rgba(240, 240, 240, 0.8);
+/**	Medidas;*/
+@mangr:2px;//medida-angle-round
+@ml:15%;//medida-lateral
+@mcu:80%;//medida-cuerpo
+@mmh:2.5%;//medida margin horizontal
+@mpbox:1.4em;//medida-padding-box
+@malh:20%;//medida-altura-lateral-header
+@malf:10%;//medida-altura-lateral-footer
+@malc:100 - (@malh + @malf);//medida-altura-lateral-contenido
+@manl:100%;
+.caja{
+	padding: @mpbox;
+}
+.subcajas-lateral{
+	margin: 0 0 .4em 0;
+}
+*{
+	.box-sizing();
+}
 body{
-	.gradient(@color-fondo1,@color-fondo2,@color-fondo1);
+	.gradient(@cfondo1,@cfondo2,@cfondo1);
+	&:after{
+		content: url(/sismarketing/images/pattern.png);
+	}
+	//overflow-y: hidden;
 }
 #web{
 	min-height: 700px;
 	width: 100%;
 		.superior{
-			min-height: 60px;
-			background:@color-black; 
+			height: auto;
+			background:@cblack;
 		}
 	.wrap{
-			width: 95%;
+			width: 100%;
 			margin: 0 auto;
-			display: inline-block;
+			//display: inline-block;
 		.sidebar-lateral{
-			width:20%; 
-			background: @color-elementos;
+			width:@ml; 
+			background: lightness(@ccajas);
 			min-height: 600px;
-			float: left;
-			.border-radius(0,@medida-angle-round);
+			display: inline-block;
+			z-index: 2;
+			.control-btn{
+				width: 20px;
+				height: 20px;
+				.rounded(.2em);
+				background: @cblack;
+				position: relative;
+				left:110%;
+			}
+			.wrap-l{
+					position: relative;
+					width: 100%;
+				.lat-header{
+					height: @malh;
+					min-height: 200px;
+					width: @manl;
+					.subcajas-lateral;
+						.foto{
+							position: relative;
+							.rounded(50%);
+							margin: 0 auto;
+							height: 90%;
+							cursor: pointer;
+							height: 170px;
+							width: 170px;
+							background: lighten(@cfondo1, 10%);
+							color:lighten(@cblack, 15%);
+							font-size: 2em;
+							overflow: hidden;
+							i{
+								margin: 0 0 0 15%;
+
+							}
+						}
+
+				}
+				.lat-content{
+					.subcajas-lateral;
+					width: @manl;
+					height: @malc;
+					min-height: 280px;
+					position: relative;
+					ul{
+							background: currentcolor;
+							.rounded(0px);
+						li{
+							background: lighten(@ccajas, 5%);
+							.rounded(0px);
+							a{
+							color: @cblack;
+							text-decoration: none;
+								i{
+									position: absolute;
+									right: 15px;
+								}
+							}
+						}
+					}
+				}
+				.lat-footer{
+					.subcajas-lateral;
+					width: @manl;
+					height: @malf;
+					min-height: 50px;
+					position: relative;
+					margin-bottom: 0;
+					background: lighten(@ccajas, 10%);
+				}
+			}
 		}
 		.cuerpo{
-			width:77%;
-			min-height: 600px;
-			background: @color-elementos;
-			float: right;
-			.border-radius(0,0,@medida-angle-round,0);
+			.border-radius(0,0,@mangr,0);
+			.caja;
+			z-index: -1;
+			width:@mcu;
+			min-height: 570px;
+			background: @ccajas;
+			display: inline-block;
+			margin-left: @mmh;
+			position: relative;
+			top:-442px;
 		}
 
 	}

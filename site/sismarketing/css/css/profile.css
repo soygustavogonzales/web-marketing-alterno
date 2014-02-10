@@ -5,6 +5,19 @@
     More info at: http://lesselements.com.
     Modificated by Gustavo Gonzales on January 2013.
   ---------------------------------------------------*/
+/**	Medidas;*/
+.caja {
+  padding: 1.4em;
+}
+.subcajas-lateral {
+  margin: 0 0 .4em 0;
+}
+* {
+  -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 body {
   background: #6fc2b0;
   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #c8886d), color-stop(1, #6fc2b0));
@@ -13,45 +26,103 @@ body {
   background: -o-linear-gradient(#6fc2b0, #c8886d);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6fc2b0', endColorstr='#c8886d', GradientType=0);
 }
+body:after {
+  content: url(/sismarketing/images/pattern.png);
+}
 #web {
   min-height: 700px;
   width: 100%;
 }
 #web .superior {
-  min-height: 60px;
+  height: auto;
   background: rgba(64, 63, 59, 0.9);
 }
 #web .wrap {
-  width: 95%;
+  width: 100%;
   margin: 0 auto;
-  display: inline-block;
 }
 #web .wrap .sidebar-lateral {
-  width: 20%;
-  background: rgba(240, 240, 240, 0.8);
+  width: 15%;
+  background: 94%;
   min-height: 600px;
-  float: left;
-  -webkit-border-top-right-radius: 0;
-  -webkit-border-bottom-right-radius: 2px;
-  -webkit-border-bottom-left-radius: 0;
-  -webkit-border-top-left-radius: 0;
-  -moz-border-radius-topright: 0;
-  -moz-border-radius-bottomright: 2px;
-  -moz-border-radius-bottomleft: 0;
-  -moz-border-radius-topleft: 0;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  -moz-background-clip: padding-box;
-  -webkit-background-clip: padding-box;
-  background-clip: padding-box;
+  display: inline-block;
+  z-index: 2;
+}
+#web .wrap .sidebar-lateral .control-btn {
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 0.2em;
+  -moz-border-radius: 0.2em;
+  border-radius: 0.2em;
+  background: rgba(64, 63, 59, 0.9);
+  position: relative;
+  left: 110%;
+}
+#web .wrap .sidebar-lateral .wrap-l {
+  position: relative;
+  width: 100%;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-header {
+  height: 20%;
+  min-height: 200px;
+  width: 100%;
+  margin: 0 0 .4em 0;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-header .foto {
+  position: relative;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  margin: 0 auto;
+  height: 90%;
+  cursor: pointer;
+  height: 170px;
+  width: 170px;
+  background: #93d1c4;
+  color: rgba(104, 102, 96, 0.9);
+  font-size: 2em;
+  overflow: hidden;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-header .foto i {
+  margin: 0 0 0 15%;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-content {
+  margin: 0 0 .4em 0;
+  width: 100%;
+  height: 70%;
+  min-height: 280px;
+  position: relative;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-content ul {
+  background: currentcolor;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-content ul li {
+  background: rgba(253, 253, 253, 0.8);
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-content ul li a {
+  color: rgba(64, 63, 59, 0.9);
+  text-decoration: none;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-content ul li a i {
+  position: absolute;
+  right: 15px;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-footer {
+  margin: 0 0 .4em 0;
+  width: 100%;
+  height: 10%;
+  min-height: 50px;
+  position: relative;
+  margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
 }
 #web .wrap .cuerpo {
-  width: 77%;
-  min-height: 600px;
-  background: rgba(240, 240, 240, 0.8);
-  float: right;
   -webkit-border-top-right-radius: 0;
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 2px;
@@ -67,4 +138,13 @@ body {
   -moz-background-clip: padding-box;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
+  padding: 1.4em;
+  z-index: -1;
+  width: 80%;
+  min-height: 570px;
+  background: rgba(240, 240, 240, 0.8);
+  display: inline-block;
+  margin-left: 2.5%;
+  position: relative;
+  top: -442px;
 }

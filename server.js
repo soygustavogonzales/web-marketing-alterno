@@ -60,6 +60,7 @@ app.get('/sismarketing/login',function(req,res){
 	//res.sendfile(__dirname+"/site/sismarketing/application/views/index.html");
 })
 
+
 app.post('/sismarketing/loginsend',function(req,res){
 	var data = req.body.data;
 	console.log(req.body);
@@ -87,6 +88,14 @@ app.put('/sismarketing/index.min.php/seleccioncontrol/postulantecontrol/guardarp
 	console.log(req.body.data);
 	res.send(true);
 })
+
+app.get('/sismarketing/profile/getJSON',function(req,res){
+	var superJSON = {
+		data:"hola"
+	}
+	res.json(superJSON)
+});
+
 server.listen(app.get('port'),function(){
 	l("server running in port: "+app.get('port'));
 });

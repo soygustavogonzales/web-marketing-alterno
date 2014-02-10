@@ -1,8 +1,9 @@
 extends layout_hijo
 block head_sub
 	link(rel="stylesheet",href="/sismarketing/css/css/profile.css")
+	link(rel="stylesheet",href="/sismarketing/css/css/jquery.sidr.dark.min.css")
 block content
-	#web
+	#web(ng-controller="profileCtrl")
 		.superior
 			block superior
 		.wrap
