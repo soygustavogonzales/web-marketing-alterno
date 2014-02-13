@@ -47,33 +47,25 @@ block lateral
 	.wrap-l(id="sidr")
 		.lat-header
 			.foto(ng-click="mover($event)")
-				img(src="", alt="")
-				i.fa(class="fa-user fa-5x")
+				img(src="{{userPicture}}", ng-model="userPicture",alt="{{userPicture}}")
+				i.fa(class="fa-user fa-5x",ng-show="userPicture == 'null'||userPicture==null")
+			.data-user(class="well",ng-model="userJob")|{{userJob}}
 		.lat-content
-			ul.list-group
-				li.list-group-item
-					a(href="#")|Modificar datos
-						i.fa(class="fa-cog fa-2x")
-				li.list-group-item
-					a(href="#")|Acceso 2
-						i.fa(class="fa-coffee fa-2x")
-				li.list-group-item
-					a(href="#")|Acceso 3
-						i.fa(class="fa-dashboard fa-2x")
-				li.list-group-item
-					a(href="#")|Acceso 4
-						i.fa(class="fa-edit fa-2x")
-				li.list-group-item
-					a(href="#")|Acceso 5
-						i.fa(class="fa-comments fa-2x")
-				li.list-group-item
-					a(href="#")|Acceso 6
-						i.fa(class="fa-cloud fa-2x")
-				li.list-group-item
-					a(href="#")|Acceso 7
-						i.fa(class="fa-compass fa-2x")
+			ul.list-group(id="accesos")
+				li.list-group-item(class="getActive(acceso.id)",ng-repeat="acceso in userAccess")
+					a(href="#{{acceso.id}}",data-toggle="tab")|{{acceso.nombre}}
+						i.fa(class="{{acceso.estilos.icono}} fa-2x")
 		.lat-footer
 block cuerpo-principal
 	.wrap-p
-		|Estamos en el cuerpo
+		.tab-content(id="tab-content")
+			.tab-pane(id="{{acceso.id}}",class="fade col-md-5 {{getActive(acceso.id)}}",ng-repeat="acceso in userAccess")
+				.titulo(class="well well-sm")|{{acceso.nombre}}
+				.elem(ng-repeat="elemento in acceso.contenido.formulario")
+					label|{{elemento.nombre}}
+					input.form-control(class="input-lg",type="{{elemento.type}}",value="{{elemento.value}}",placeholder="{{elemento.nombre}}",ng-show="{{elemento.nodo == 'input'}}")
+					select.form-control(class="input-lg",ng-show="{{elemento.nodo == 'select'}}")
+						option(selected){{elemento.selected}}	
+						option(ng-repeat="option in elemento.options", ng-hide="option == elemento.selected"){{option}}	
+					br
 

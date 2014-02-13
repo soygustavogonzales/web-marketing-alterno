@@ -10,7 +10,8 @@
 @mcu:80%;//medida-cuerpo
 @mmh:2.5%;//medida margin horizontal
 @mpbox:1.4em;//medida-padding-box
-@malh:20%;//medida-altura-lateral-header
+@malh:auto;//medida-altura-lateral-header
+@minMalh:308px;//minima medida de altura del lateral-header
 @malf:10%;//medida-altura-lateral-footer
 @malc:100 - (@malh + @malf);//medida-altura-lateral-contenido
 @manl:100%;
@@ -26,7 +27,7 @@
 body{
 	.gradient(@cfondo1,@cfondo2,@cfondo1);
 	&:after{
-		content: url(/sismarketing/images/pattern.png);
+		content: url(/sismarketing/css/images/pattern.png);
 	}
 	//overflow-y: hidden;
 }
@@ -60,10 +61,12 @@ body{
 					width: 100%;
 				.lat-header{
 					height: @malh;
-					min-height: 200px;
+					min-height: @minMalh;
 					width: @manl;
+					position: fixed;
 					.subcajas-lateral;
 						.foto{
+							z-index: 1;
 							position: relative;
 							.rounded(50%);
 							margin: 0 auto;
@@ -77,7 +80,18 @@ body{
 							overflow: hidden;
 							i{
 								margin: 0 0 0 15%;
-
+							}
+							img{
+									//.transition(1.5s);
+									position: relative;
+									left: -0.2em;
+									top:-0.3em;
+									zoom:1;
+								&:hover{
+									zoom:1.1;
+									left: -1.2em;
+									top:-0.6em;
+								}
 							}
 						}
 
@@ -87,6 +101,7 @@ body{
 					width: @manl;
 					height: @malc;
 					min-height: 280px;
+					margin-top: -100px;
 					position: relative;
 					ul{
 							background: currentcolor;
@@ -119,14 +134,14 @@ body{
 		.cuerpo{
 			.border-radius(0,0,@mangr,0);
 			.caja;
-			z-index: -1;
+			z-index: 0;
 			width:@mcu;
 			min-height: 570px;
 			background: @ccajas;
 			display: inline-block;
 			margin-left: @mmh;
-			position: relative;
-			top:-442px;
+			position: absolute;
+			top:80px;
 		}
 
 	}

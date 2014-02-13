@@ -25,21 +25,24 @@ body {
   background: -moz-linear-gradient(center bottom, #c8886d 0%, #6fc2b0 100%);
   background: -o-linear-gradient(#6fc2b0, #c8886d);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#6fc2b0', endColorstr='#c8886d', GradientType=0);
+  overflow-y: hidden;
 }
-body:after {
-  content: url(/sismarketing/images/pattern.png);
-}
+
 #web {
-  min-height: 700px;
-  width: 100%;
+  height: 800px;
+  width: 1500px;
+
 }
 #web .superior {
   height: auto;
   background: rgba(64, 63, 59, 0.9);
+  width: 100%;
 }
 #web .wrap {
   width: 100%;
   margin: 0 auto;
+  height: auto;
+
 }
 #web .wrap .sidebar-lateral {
   width: 15%;
@@ -64,11 +67,20 @@ body:after {
 }
 #web .wrap .sidebar-lateral .wrap-l .lat-header {
   height: 20%;
-  min-height: 200px;
+  min-height: 308px;
   width: 100%;
   margin: 0 0 .4em 0;
+  position: relative;
 }
+
+#web .wrap .sidebar-lateral .wrap-l .lat-header .data-user{
+  position: relative;
+  margin:-1.9em 0 0 .4em;
+  z-index: 2;
+}
+
 #web .wrap .sidebar-lateral .wrap-l .lat-header .foto {
+  z-index: 1;
   position: relative;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -86,8 +98,23 @@ body:after {
 #web .wrap .sidebar-lateral .wrap-l .lat-header .foto i {
   margin: 0 0 0 15%;
 }
+#web .wrap .sidebar-lateral .wrap-l .lat-header .foto img {
+  -webkit-transition: all 1s ease-out;
+  -moz-transition: all 1s ease-out;
+  -o-transition: all 1s ease-out;
+  transition: all 1s ease-out;
+  position: relative;
+  zoom: 1;
+  left: -0.2em;
+  top: -0.3em;
+}
+#web .wrap .sidebar-lateral .wrap-l .lat-header .foto img:hover {
+  zoom: 1.1;
+  left: -1.2em;
+  top: -0.6em;
+}
 #web .wrap .sidebar-lateral .wrap-l .lat-content {
-  margin: 0 0 .4em 0;
+  margin: -100px 0 .4em 0;
   width: 100%;
   height: 70%;
   min-height: 280px;
@@ -139,12 +166,15 @@ body:after {
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
   padding: 1.4em;
-  z-index: -1;
+  z-index: 0;
   width: 80%;
-  min-height: 570px;
   background: rgba(240, 240, 240, 0.8);
   display: inline-block;
   margin-left: 2.5%;
-  position: relative;
-  top: -442px;
+  position: absolute;
+  top: 80px;
+}
+#web .wrap .cuerpo .tab-content{
+  overflow-y:scroll;
+  height: 600px; 
 }
