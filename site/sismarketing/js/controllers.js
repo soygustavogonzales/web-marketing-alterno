@@ -38,6 +38,7 @@ sismarketingApp.controller('loginCtrl',['$scope','$http','$location',function($s
 		}
 }]);
 
+
 sismarketingApp.controller('profileCtrl',['$scope',function($scope){
 		var lateralContent = $('.lat-content');
 		lateralContent.status = true;//visible 
@@ -54,14 +55,19 @@ sismarketingApp.controller('profileCtrl',['$scope',function($scope){
 				//"top":((lateralContent.status)?"80px":"80px"),
 				"width":((lateralContent.status)?"+="+(lateralContent.distMover-20)+"px":"-="+(lateralContent.distMover-20)+"px")
 			})
-
+			$('.p-titulo, .p-footer').css({
+				"text-align":((lateralContent.status)?"right":"left")
+			},1000)
+			$('.elem').animate({
+				"margin-left":((lateralContent.status)?"60px":"30px")
+			}, 400);
 			$('.lat-footer').animate({
 				"left":((lateralContent.status)?"-":"+")+"="+lateralContent.distMover+"px"
 			},800);
 			/*
 			*/
 				$('.foto').animate({
-					"top":((lateralContent.status)?"-=10px":"+=10px")
+					"top":((lateralContent.status)?"-=5px":"+=5px")
 				},{
 					duration:800,
 					easing:"linear"
@@ -73,23 +79,30 @@ sismarketingApp.controller('profileCtrl',['$scope',function($scope){
 		});	
 	}
 	/*
-	$('#tab-content').mCustomScrollbar({
-		scrollButtons:{
-						enable:true
-		}
-	});
+	Scroll personalizado, no funciona!!
+		$('#tab-content').mCustomScrollbar({
+			scrollButtons:{
+							//enable:true
+			}
+		});
 	*/
 	$scope.getActive = function(id){
 		return ((id == '0')?"active":"")
 	}
+
 	$('#accesos a').on('click',function(e){
 		e.preventDefault();
 		$(this).tab('show');
 	})
+
 	var getUserProfile = function(callback){
 		$.get('/sismarketing/profile/getjson',function(data){
 			return callback(data)
 		})
+	}
+
+	$scope.submitForm = function(){
+		
 	}
 
 	var userProfile = null;

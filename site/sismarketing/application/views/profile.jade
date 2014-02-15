@@ -43,6 +43,9 @@ block superior
 								li.divider
 								li
 									a(href="#")|un link
+					form.navbar-form(class="navbar-right")
+						.form-group
+								button.form-control(class="btn-danger")|Log out				
 block lateral
 	.wrap-l(id="sidr")
 		.lat-header
@@ -58,14 +61,20 @@ block lateral
 		.lat-footer
 block cuerpo-principal
 	.wrap-p
-		.tab-content(id="tab-content")
-			.tab-pane(id="{{acceso.id}}",class="fade col-md-5 {{getActive(acceso.id)}}",ng-repeat="acceso in userAccess")
-				.titulo(class="well well-sm")|{{acceso.nombre}}
-				.elem(ng-repeat="elemento in acceso.contenido.formulario")
-					label|{{elemento.nombre}}
-					input.form-control(class="input-lg",type="{{elemento.type}}",value="{{elemento.value}}",placeholder="{{elemento.nombre}}",ng-show="{{elemento.nodo == 'input'}}")
-					select.form-control(class="input-lg",ng-show="{{elemento.nodo == 'select'}}")
-						option(selected){{elemento.selected}}	
-						option(ng-repeat="option in elemento.options", ng-hide="option == elemento.selected"){{option}}	
-					br
+		.tab-content(class="panel panel-default",id="tab-content")
+			.tab-pane(id="{{acceso.id}}",class="panel-body fade col-md-8 {{getActive(acceso.id)}}",ng-repeat="acceso in userAccess")
+				.p-titulo(class="panel-heading")|{{acceso.nombre}}
+				.elem(class="",ng-repeat="elemento in acceso.contenido.formulario")
+					form.form-horizontal(ng-submit="submitForm()",name="submitForm",role="form")
+						.form-group
+							label.col-sm-2(class="control-label",ng-show="{{elemento.nodo == 'input'||elemento.nodo == 'select'||elemento.nodo=='textarea'}}")|{{elemento.nombre}}
+							.col-sm-10
+								input.form-control(name="{{elemento.id}}",class="input",type="{{elemento.type}}",value="{{elemento.value}}",placeholder="{{elemento.nombre}}",ng-show="{{elemento.nodo == 'input'}}")
+								textarea.form-control(name="{{elemento.id}}",class="",value="{{elemento.value}}",placeholder="{{elemento.nombre}}",ng-show="{{elemento.nodo == 'textarea'}}")
+								select.form-control(name="{{elemento.id}}",class="",ng-show="{{elemento.nodo == 'select'}}")
+									option(selected){{elemento.selected}}	
+									option(ng-repeat="option in elemento.options", ng-hide="option == elemento.selected"){{option}}	
+								br
+								button.btn(type="{{elemento.type}}",class="btn-default",ng-show="{{elemento.nodo == 'button'}}"){{elemento.nombre}}
+				.p-footer|**Anotaciones
 
