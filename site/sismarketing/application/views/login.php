@@ -79,11 +79,8 @@
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-sanitize.js"></script>
 
     <script src="<?php echo base_url()?>js/app.js"></script>
-    <script src="<?php echo base_url()?>js/controllers.js"></script>
-    <script src="<?php echo base_url()?>js/services.js"></script>
-    <script src="<?php echo base_url()?>js/factorys.js"></script>
-    <script src="<?php echo base_url()?>js/filters.js"></script>
-
+    <script src="<?php echo base_url()?>js/controllers/loginCtrl.js"></script>
+    <script src="<?php echo base_url()?>js/services/generalSvs.js"></script>
     <!-- // <script src="/sismarketing/application/views/public/js/lib/jquery-2.0.3.min.js"></script> -->
     <!-- 
     <script src="/sismarketing/application/views/public/styles/bootstrap/js/bootstrap.min.js"></script>

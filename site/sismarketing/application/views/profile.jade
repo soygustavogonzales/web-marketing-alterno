@@ -48,33 +48,28 @@ block superior
 								button.form-control(class="btn-danger")|Log out				
 block lateral
 	.wrap-l(id="sidr")
-		.lat-header
+		.lat-header(ng-controller="accesoModificarDatosCtrl")
 			.foto(ng-click="mover($event)")
-				img(src="{{userPicture}}", ng-model="userPicture",alt="{{userPicture}}")
+				img(src="{{userPicture}}",alt="{{userPicture}}")
 				i.fa(class="fa-user fa-5x",ng-show="userPicture == 'null'||userPicture==null")
-			.data-user(class="well",ng-model="userJob")|{{userJob}}
+			.data-user(class="well")|{{userName}}
+				br
+				strong|{{userJob}}
 		.lat-content
 			ul.list-group(id="accesos")
-				li.list-group-item(class="getActive(acceso.id)",ng-repeat="acceso in userAccess")
-					a(href="#{{acceso.id}}",data-toggle="tab")|{{acceso.nombre}}
-						i.fa(class="{{acceso.estilos.icono}} fa-2x")
+				case idTipoUser
+					when '6'
+						include includes/enlaceModificarDatos
+					default
+						include includes/enlaceModificarDatos
 		.lat-footer
 block cuerpo-principal
 	.wrap-p
 		.tab-content(class="panel panel-default",id="tab-content")
-			.tab-pane(id="{{acceso.id}}",class="panel-body fade col-md-8 {{getActive(acceso.id)}}",ng-repeat="acceso in userAccess")
-				.p-titulo(class="panel-heading")|{{acceso.nombre}}
-				.elem(class="",ng-repeat="elemento in acceso.contenido.formulario")
-					form.form-horizontal(ng-submit="submitForm()",name="submitForm",role="form")
-						.form-group
-							label.col-sm-2(class="control-label",ng-show="{{elemento.nodo == 'input'||elemento.nodo == 'select'||elemento.nodo=='textarea'}}")|{{elemento.nombre}}
-							.col-sm-10
-								input.form-control(name="{{elemento.id}}",class="input",type="{{elemento.type}}",value="{{elemento.value}}",placeholder="{{elemento.nombre}}",ng-show="{{elemento.nodo == 'input'}}")
-								textarea.form-control(name="{{elemento.id}}",class="",value="{{elemento.value}}",placeholder="{{elemento.nombre}}",ng-show="{{elemento.nodo == 'textarea'}}")
-								select.form-control(name="{{elemento.id}}",class="",ng-show="{{elemento.nodo == 'select'}}")
-									option(selected){{elemento.selected}}	
-									option(ng-repeat="option in elemento.options", ng-hide="option == elemento.selected"){{option}}	
-								br
-								button.btn(type="{{elemento.type}}",class="btn-default",ng-show="{{elemento.nodo == 'button'}}"){{elemento.nombre}}
+			case idTipoUser
+				when '6'
+					include includes/contenidoModificarDatos
+				default
+					include includes/contenidoModificarDatos
 				.p-footer|**Anotaciones
 

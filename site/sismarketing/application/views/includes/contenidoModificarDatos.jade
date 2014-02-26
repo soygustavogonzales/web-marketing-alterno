@@ -1,0 +1,44 @@
+div(ng-controller="accesoModificarDatosCtrl")
+	.tab-pane(id="{{userAccess.modificarDatos.id}}",class="panel-body fade col-md-8 {{getActive(userAccess.modificarDatos.id)}}")
+		.p-titulo(class="panel-heading")|Modificar Datos
+		.elem(class="")
+			form.form-horizontal(id="formUpdate",ng-submit="submitForm()",name="submitForm_",role="form",novalidate)
+				.form-group
+					label.col-sm-2(class="control-label")|Nombres
+					.col-sm-10
+						input.form-control(name="nombres",ng-model="nombres",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.nombres.value}}",placeholder="nombres")
+					i.fa(class="senal fa-{{validationStyle(submitForm_.nombres,'smile-o','frown-o')}} form-control-feedback")	
+				.form-group
+					label.col-sm-2(class="control-label")|Apellido paterno
+					.col-sm-10
+						input.form-control(name="apellido paterno",ng-model="apellidoP",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.apellidoP.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.apellidoP.value}}",required)				
+				.form-group
+					label.col-sm-2(class="control-label")|Apellido materno
+					.col-sm-10
+						input.form-control(name="apellido paterno",ng-model="apellidoM",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.apellidoM.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.apellidoM.value}}",required)				
+				.form-group
+					label.col-sm-2(class="control-label")|celular
+					.col-sm-10
+						input.form-control(name="celular",ng-model="celular",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.celular.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.celular.value}}",required)				
+				.form-group
+					label.col-sm-2(class="control-label")|Estado civil
+					.col-sm-10
+						select.form-control(name="estadoCivil",class="input estadoCivil")	
+							option(selected){{modificarDatosAccess.contenido.formulario.estadoCivil.selected}}
+							option(ng-show="'soltero(a)' != modificarDatosAccess.contenido.formulario.estadoCivil.selected")|soltero(a)
+							option(ng-show="'casado(a)' != modificarDatosAccess.contenido.formulario.estadoCivil.selected")|casado(a)
+							option(ng-show="'divorciado(a)' != modificarDatosAccess.contenido.formulario.estadoCivil.selected")|divorciado(a)
+							option(ng-show="'viudo(a)' != modificarDatosAccess.contenido.formulario.estadoCivil.selected")|viudo(a)
+				.form-group
+					label.col-sm-2(class="control-label")|correo
+					.col-sm-10
+						input.form-control(name="correo",ng-model="correo",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.correo.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.correo.value}}",required)
+				.form-group
+					label.col-sm-2(class="control-label")|domicilio
+					.col-sm-10
+						input.form-control(name="domicilio",ng-model="domicilio",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.domicilio.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.domicilio.value}}",required)
+				.form-group
+					label.col-sm-2(class="control-label")|Referencia del domicilio
+					.col-sm-10
+						input.form-control(name="referenciaDomicilio",ng-model="referenciaDomicilio",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.referenciaDomicilio.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.referenciaDomicilio.value}}",required)
+				button.btn(class="submit btn-default btn",type="submit",ng-disabled="submitForm_.$invalid")|Guardar
