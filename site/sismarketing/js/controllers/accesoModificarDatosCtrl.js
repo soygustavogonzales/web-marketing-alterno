@@ -8,13 +8,15 @@ sismarketingApp.controller('accesoModificarDatosCtrl',['$scope','$location','ser
 					apellidoP:$scope.apellidoP,
 					apellidoM:$scope.apellidoM,
 					celular:$scope.celular,
+					telefono:$scope.telefono,
 					estadoCivil:$('#formUpdate .estadoCivil').val(),
+					dni:$scope.dni,
 					correo:$scope.correo,
 					domicilio:$scope.domicilio,
 					referenciaDomicilio:$scope.referenciaDomicilio
 				}
 				console.log(obj);
-					$.post("/sismarketing/actualizar/empleado"
+					$.post($scope.actualizarDatosPersonales
 					,obj
 					,function(data){
 							console.log(data);
@@ -35,7 +37,18 @@ sismarketingApp.controller('accesoModificarDatosCtrl',['$scope','$location','ser
 		$scope.userPicture = userProfile.fotoUsuario||null;
 		$scope.userAccess = userProfile.accesos;
 		$scope.modificarDatosAccess = $scope.userAccess.modificarDatos;
+		$scope.dni = $scope.modificarDatosAccess.contenido.formulario.dni.value;
 		//$scope.formulario = $scope.modificarDatosAccess.contenido.formulario;
+		$scope.actualizarDatosPersonales = $scope.modificarDatosAccess.URI.uri;
+		$scope.nombres = $scope.modificarDatosAccess.contenido.formulario.nombres.value;
+		$scope.apellidoP = $scope.modificarDatosAccess.contenido.formulario.apellidoP.value;
+		$scope.apellidoM = $scope.modificarDatosAccess.contenido.formulario.apellidoM.value;
+		$scope.celular = $scope.modificarDatosAccess.contenido.formulario.celular.value;
+		$scope.telefono = $scope.modificarDatosAccess.contenido.formulario.telefono.value;
+		$scope.estadoCivil = $scope.modificarDatosAccess.contenido.formulario.estadoCivil.value;
+		$scope.correo = $scope.modificarDatosAccess.contenido.formulario.correo.value;
+		$scope.domicilio = $scope.modificarDatosAccess.contenido.formulario.domicilio.value;
+		$scope.referenciaDomicilio = $scope.modificarDatosAccess.contenido.formulario.referenciaDomicilio.value;
 		$scope.$apply();
 	})
 

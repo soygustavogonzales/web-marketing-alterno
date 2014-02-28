@@ -6,20 +6,24 @@ div(ng-controller="accesoModificarDatosCtrl")
 				.form-group
 					label.col-sm-2(class="control-label")|Nombres
 					.col-sm-10
-						input.form-control(name="nombres",ng-model="nombres",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.nombres.value}}",placeholder="nombres")
+						input.form-control(name="nombres",ng-model="nombres",class="input",type="text",value="{{nombres}}",placeholder="nombres")
 					i.fa(class="senal fa-{{validationStyle(submitForm_.nombres,'smile-o','frown-o')}} form-control-feedback")	
 				.form-group
 					label.col-sm-2(class="control-label")|Apellido paterno
 					.col-sm-10
-						input.form-control(name="apellido paterno",ng-model="apellidoP",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.apellidoP.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.apellidoP.value}}",required)				
+						input.form-control(name="apellido paterno",ng-model="apellidoP",class="input",type="text",value="{{apellidoP}}",placeholder="apellido paterno",required)				
 				.form-group
 					label.col-sm-2(class="control-label")|Apellido materno
 					.col-sm-10
-						input.form-control(name="apellido paterno",ng-model="apellidoM",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.apellidoM.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.apellidoM.value}}",required)				
+						input.form-control(name="apellido paterno",ng-model="apellidoM",class="input",type="text",value="{{apellidoM}}",placeholder="apellido materno",required)				
 				.form-group
 					label.col-sm-2(class="control-label")|celular
 					.col-sm-10
-						input.form-control(name="celular",ng-model="celular",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.celular.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.celular.value}}",required)				
+						input.form-control(name="celular",ng-model="celular",class="input",type="text",value="{{celular}}",placeholder="celular",required)				
+				.form-group
+					label.col-sm-2(class="control-label")|telefono
+					.col-sm-10
+						input.form-control(name="celular",ng-model="telefono",class="input",type="text",value="{{telefono}}",placeholder="telefono",required)										
 				.form-group
 					label.col-sm-2(class="control-label")|Estado civil
 					.col-sm-10
@@ -32,13 +36,13 @@ div(ng-controller="accesoModificarDatosCtrl")
 				.form-group
 					label.col-sm-2(class="control-label")|correo
 					.col-sm-10
-						input.form-control(name="correo",ng-model="correo",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.correo.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.correo.value}}",required)
+						input.form-control(name="correo",ng-model="correo",class="input",type="email",value="{{correo}}",placeholder="correo",required,ng-minlength="6",ng-maxlength="50")
 				.form-group
 					label.col-sm-2(class="control-label")|domicilio
 					.col-sm-10
-						input.form-control(name="domicilio",ng-model="domicilio",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.domicilio.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.domicilio.value}}",required)
+						input.form-control(name="domicilio",ng-model="domicilio",class="input",type="text",value="{{domicilio}}",placeholder="domicilio",required)
 				.form-group
 					label.col-sm-2(class="control-label")|Referencia del domicilio
 					.col-sm-10
-						input.form-control(name="referenciaDomicilio",ng-model="referenciaDomicilio",class="input",type="text",value="{{modificarDatosAccess.contenido.formulario.referenciaDomicilio.value}}",placeholder="{{modificarDatosAccess.contenido.formulario.referenciaDomicilio.value}}",required)
+						input.form-control(name="referenciaDomicilio",ng-model="referenciaDomicilio",class="input",type="text",value="{{referenciaDomicilio}}",placeholder="referencia del domicilio",required)
 				button.btn(class="submit btn-default btn",type="submit",ng-disabled="submitForm_.$invalid")|Guardar

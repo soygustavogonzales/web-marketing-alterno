@@ -1,6 +1,6 @@
 sismarketingApp.service('serviceProfile', ['generalSvs',function(generalSvs){
 
-		this.logOut = function(){
+		this.logOut = function(pathOut){
 			var jqxhr = $.ajax({
 				url:'/sismarketing/logout',
 				type:'post'
@@ -8,7 +8,7 @@ sismarketingApp.service('serviceProfile', ['generalSvs',function(generalSvs){
 			jqxhr.done(function(data){
 				console.log('cerrando sesion: ' + data);//esto no se vera en consola-pero por si a caso ocurre algun fallo en la ejecucion de la sgte. linea-
 				if(data == 'true')
-					location.replace(routerP+'/sismarketing/login');
+					location.replace(pathOut);
 			});
 			jqxhr.fail(function(jqXHR,textStatus){
 				console.log('Error: ')

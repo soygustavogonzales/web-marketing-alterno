@@ -58,7 +58,9 @@ block lateral
 		.lat-content
 			ul.list-group(id="accesos")
 				case idTipoUser
-					when '6'
+					when '6'//postulante
+						include includes/enlaceModificarDatos
+					when '2'//RRHH
 						include includes/enlaceModificarDatos
 					default
 						include includes/enlaceModificarDatos
@@ -67,8 +69,10 @@ block cuerpo-principal
 	.wrap-p
 		.tab-content(class="panel panel-default",id="tab-content")
 			case idTipoUser
-				when '6'
+				when '6'//postulante
 					include includes/contenidoModificarDatos
+				when '2'//RRHH
+					include includes/enlaceModificarDatos
 				default
 					include includes/contenidoModificarDatos
 				.p-footer|**Anotaciones

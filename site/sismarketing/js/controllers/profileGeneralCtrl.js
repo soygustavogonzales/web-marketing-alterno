@@ -50,7 +50,10 @@ sismarketingApp.controller('profileGeneralCtrl', ['$scope','$location','serviceP
 		}
 
 		$scope.logOut = function(){
-			serviceProfile.logOut();
+			var routerP = $location.protocol()
+															+"://"+$location.host()
+															+":"+$location.port();	
+			serviceProfile.logOut(routerP+'/sismarketing/login');
 		}
 
 		$scope.getUserProfile = function(callback){

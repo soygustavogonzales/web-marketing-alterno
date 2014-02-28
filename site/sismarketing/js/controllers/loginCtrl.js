@@ -25,7 +25,6 @@ sismarketingApp.controller('loginCtrl',['$scope','$http','$location','generalSvs
 						password:$scope.password
 					}
 					console.log(obj);
-
 				//$http.post();
 				$.post("/sismarketing/loginsend"
 					,obj
@@ -35,7 +34,7 @@ sismarketingApp.controller('loginCtrl',['$scope','$http','$location','generalSvs
 							alert("email or password incorrect")
 						}else{
 							console.log("Seras redireccionado...")
-							location.assign(data)
+							location.assign(routerP+"/sismarketing/profile")
 							//$location.url('/profile');
 						}
 					});
