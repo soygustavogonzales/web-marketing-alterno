@@ -1,6 +1,81 @@
-extends layout_hijo
-block content
-	#web(ng-controller="myController")
-block import_sub
-	script(src="/sismarketing/js/controller2.js")
-	script(src="/sismarketing/js/service2.js")
+extends layout_profile
+block superior
+	.wrap-s
+		nav.navbar(class="navbar-inverse",role="navigation")
+			.container-fluid
+				.navbar-header
+					button.navbar-toggle(type="button",data-toggle="collapse",data-target="#bs-example-navbar-collapse-1")
+						span.sr-only|Toggle navigation
+						span.icon-bar
+						span.icon-bar
+						span.icon-bar
+					a.navbar-brand(href="#")|Sismarketing - #{nombre}
+				.collapse(id="#bs-example-navbar-collapse-1",class="navbar-collapse")
+					ul.nav(class="navbar-nav")
+						li.active
+							a(href="#")|Link
+						li
+							a(href="#")|Link
+						li.dropdown
+							a.dropdown-toggle(href="#",data-toggle="dropdown")|Dropdown
+								b.caret
+							ul.dropdown-menu
+								li
+									a(href="#")|un link
+								li
+									a(href="#")|un link
+								li.divider
+								li
+									a(href="#")|un link
+					form.navbar-form(class="navbar-left",id="",role="search")
+						.form-group
+							input(type="text",class="form-control",placeholder="Search")
+						button.btn(type="submit",class="btn-default")|Submit	
+					ul.nav(class="navbar-nav navbar-rigth")
+						li
+							a.dropdown-toggle(href="#",data-toggle="dropdown")|Dropdown
+								b.caret
+							ul.dropdown-menu
+								li
+									a(href="#")|un link
+								li
+									a(href="#")|un link
+								li.divider
+								li
+									a(href="#")|un link
+					form.navbar-form(class="navbar-right")
+						.form-group
+								button.form-control(class="btn-danger")|Log out				
+block lateral
+	.wrap-l(id="sidr")
+		.lat-header(ng-controller="accesoModificarDatosCtrl")
+			.foto(ng-click="mover($event)")
+				img(src="{{userPicture}}",alt="{{userPicture}}")
+				i.fa(class="fa-user fa-5x",ng-show="userPicture == 'null'||userPicture==null")
+			.data-user(class="well")|{{userName}}
+				br
+				strong|{{userJob}}
+		.lat-content
+			ul.list-group(id="accesos")
+				case idTipoUser
+					when 6
+						//p|HI root
+						include includes/enlaceModificarDatos
+					when 5
+						//p|HI admin
+						include includes/enlaceModificarDatos
+					default
+						//p|HI invited
+						include includes/enlaceModificarDatos
+block cuerpo-principal
+	.wrap-p
+		.tab-content(class="panel panel-default",id="tab-content")
+			case idTipoUser
+				when 6
+					include includes/contenidoModificarDatos
+				when 2
+					include includes/enlaceModificarDatos
+				default
+					include includes/contenidoModificarDatos
+			.p-footer|**Anotaciones
+

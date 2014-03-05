@@ -1,11 +1,13 @@
 var l = console.log,
 http = require('http'),
 express = require('express'),
+jade = require('jade'),
 app = express(),
 less = require('less'),
 path = require('path'),
 fs = require('fs'),
 toCss = require('./serverLess.js'),
+jade = require('jade'),
 server = http.createServer(app);
 app.configure(function(){
 	app.set('port',process.env.PORT||8081);
@@ -69,11 +71,22 @@ app.post('/sismarketing/loginsend',function(req,res){
 })
 
 app.get('/sismarketing/profile',function(req,res){
-	res.render(__dirname+'/site/sismarketing/application/views/profile.jade',
-	{
-		idTipoUser:'6',
-		nombre:'Gustavo Gonzales'
+	//var pathFile = __dirname+'/site/sismarketing/application/views/profile.jade';
+	var pathFile = __dirname+'/site/sismarketing/application/views/prueba2.jade';
+	var jadeTemp = jade.compile(fs.readFileSync(pathFile,'utf8')
+		,{
+			filename:pathFile,
+			pretty:true
+		});
+	var html = jadeTemp({
+		idTipoUser:5,
+		nombre:'Gustavo Gonzales',
+		lastname:'Taylor'
 	})
+
+	res.send(html);
+	/*
+	*/
 })
 /*
 */

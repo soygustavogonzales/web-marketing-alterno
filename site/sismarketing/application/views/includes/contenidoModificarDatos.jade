@@ -7,7 +7,7 @@ div(ng-controller="accesoModificarDatosCtrl")
 					label.col-sm-2(class="control-label")|Nombres
 					.col-sm-10
 						input.form-control(name="nombres",ng-model="nombres",class="input",type="text",value="{{nombres}}",placeholder="nombres")
-					i.fa(class="senal fa-{{validationStyle(submitForm_.nombres,'smile-o','frown-o')}} form-control-feedback")	
+						i.fa(class="senal fa-{{validationStyle(submitForm_.nombres,'smile-o','frown-o')}} form-control-feedback")
 				.form-group
 					label.col-sm-2(class="control-label")|Apellido paterno
 					.col-sm-10
@@ -27,7 +27,7 @@ div(ng-controller="accesoModificarDatosCtrl")
 				.form-group
 					label.col-sm-2(class="control-label")|Estado civil
 					.col-sm-10
-						select.form-control(name="estadoCivil",class="input estadoCivil")	
+						select.form-control(name="estadoCivil",class="input estadoCivil")
 							option(selected){{modificarDatosAccess.contenido.formulario.estadoCivil.selected}}
 							option(ng-show="'soltero(a)' != modificarDatosAccess.contenido.formulario.estadoCivil.selected")|soltero(a)
 							option(ng-show="'casado(a)' != modificarDatosAccess.contenido.formulario.estadoCivil.selected")|casado(a)

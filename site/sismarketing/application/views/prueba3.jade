@@ -1,0 +1,11 @@
+extends layout_padre
+block content
+	.wrap
+		|User #{nombre} id: #{idTipoUser} 
+		case idTipoUser
+			when 6
+				p|HI root
+			when 5
+				p|HI admin
+			default
+				p|HI invited
